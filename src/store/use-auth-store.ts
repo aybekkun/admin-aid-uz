@@ -8,6 +8,7 @@ interface AuthState {
 	user: TAuthResponse["data"] | null;
 	isAuth: boolean;
 	token: string | null;
+	setUser: (data: TAuthResponse["data"]) => void;
 	signOut: () => void;
 	fetchCheckAuthMe: () => Promise<void>;
 	fetchRegister: (params: TAuthRegister) => Promise<void>;
@@ -31,7 +32,10 @@ export const useAuthStore = create(
 						set({ isAuth: false, token: null, user: null });
 					}
 				},
-				setUser: (user: TAuthResponse["data"]) => set({ user }),
+				setUser: (user: TAuthResponse["data"]) => {
+					set({ user, isAuth: true, token: user.token });
+					window.localStorage.setItem("token", user.token);
+				},
 				fetchRegister: async (params) => {
 					try {
 						const { data } = await $host.post<TAuthResponse>("/login", params);

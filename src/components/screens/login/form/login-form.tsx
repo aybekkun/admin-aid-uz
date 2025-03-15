@@ -1,19 +1,26 @@
 import { FORM_DEFAULT, INPUT_PLACEHOLDER } from "@/constants";
 
-import { TAuthLogin, useAuthLoginMutation } from "@/services/auth";
+import { TAuthLogin, TAuthResponse, useAuthLoginMutation } from "@/services/auth";
+import { useAuthStore } from "@/store/use-auth-store";
 import { formatPhoneReverse } from "@/utils";
 
 import { Button, Card, Form, FormProps, Input, Typography } from "antd";
-import { FC,  } from "react";
+import { FC } from "react";
 import { PatternFormat } from "react-number-format";
 export const LoginForm: FC = () => {
+	const { setUser } = useAuthStore();
 	const [form] = Form.useForm<TAuthLogin>();
 	const { mutate: login, isPending } = useAuthLoginMutation();
 	const onFinish: FormProps<TAuthLogin>["onFinish"] = (values) => {
 		if (values.phone) {
 			values.phone = formatPhoneReverse(values.phone);
 		}
-		login(values);
+		login(values, {
+			onSuccess: (data: TAuthResponse) => {
+				// form.resetFields();
+				setUser(data.data);
+			},
+		});
 	};
 
 	return (

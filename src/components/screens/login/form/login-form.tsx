@@ -1,0 +1,37 @@
+import { FORM_DEFAULT, INPUT_PLACEHOLDER } from "@/constants";
+
+import { TAuthLogin, useAuthLoginMutation } from "@/services/auth";
+import { formatPhoneReverse } from "@/utils";
+
+import { Button, Card, Form, FormProps, Input, Typography } from "antd";
+import { FC,  } from "react";
+import { PatternFormat } from "react-number-format";
+export const LoginForm: FC = () => {
+	const [form] = Form.useForm<TAuthLogin>();
+	const { mutate: login, isPending } = useAuthLoginMutation();
+	const onFinish: FormProps<TAuthLogin>["onFinish"] = (values) => {
+		if (values.phone) {
+			values.phone = formatPhoneReverse(values.phone);
+		}
+		login(values);
+	};
+
+	return (
+		<Card style={{ width: "100%", maxWidth: 400 }}>
+			<Typography.Title level={3}>Логин</Typography.Title>
+			<Form form={form} {...FORM_DEFAULT} onFinish={onFinish}>
+				<Form.Item label="Телефон" name={"phone"} rules={[{ required: true }]}>
+					<PatternFormat placeholder={INPUT_PLACEHOLDER} format={"+998 ## ### ## ##"} customInput={Input} />
+				</Form.Item>
+				<Form.Item label="Пароль" name={"password"} rules={[{ required: true }]}>
+					<Input.Password placeholder={INPUT_PLACEHOLDER} />
+				</Form.Item>
+				<Form.Item>
+					<Button type={"primary"} htmlType={"submit"} block={true} disabled={isPending}>
+						Войти
+					</Button>
+				</Form.Item>
+			</Form>
+		</Card>
+	);
+};

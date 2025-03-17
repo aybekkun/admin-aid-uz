@@ -1,28 +1,29 @@
 import { AxiosError } from "axios";
 
-export type Response<T> = {
+export type TResponse<T> = {
 	message?: string;
 	data: T[];
-	pagination: Pagination;
+	pagination: TPagination;
 };
 
-export type ResponseData<T> = {
+export type TResponseData<T> = {
 	message?: string;
 	data: T[];
 };
 
-export type ResponseSingleData<T> = {
+export type TResponseSingleData<T> = {
 	message?: string;
 	data: T;
 };
 
-export type ResponseError = AxiosError<{
+export type TResponseError = AxiosError<{
 	message?: string;
 	error?: string[];
 }>;
 
-export type Pagination = {
+export type TPagination = {
 	count: number;
 	next?: string | null;
 	previous?: string | null;
 };
+

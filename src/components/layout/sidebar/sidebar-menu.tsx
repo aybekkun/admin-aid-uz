@@ -1,27 +1,86 @@
 import { FC } from "react";
-import { UploadOutlined, UserOutlined, VideoCameraOutlined } from "@ant-design/icons";
+import {
+	CopyOutlined,
+	FileOutlined,
+	ReadOutlined,
+	RiseOutlined,
+	TeamOutlined,
+	UploadOutlined,
+	UserOutlined,
+	VideoCameraOutlined,
+} from "@ant-design/icons";
 import { Menu } from "antd";
+import { useLocation, useRouter } from "@tanstack/react-router";
 export const SidebarMenu: FC = () => {
+	const router = useRouter();
+	const { pathname } = useLocation();
+	const onSelectMenu = (key: string) => {
+		router.navigate({
+			href: key,
+		});
+	};
 	return (
 		<Menu
 			theme="dark"
 			mode="inline"
-			defaultSelectedKeys={["1"]}
+			defaultSelectedKeys={[pathname]}
+			selectedKeys={[pathname]}
+			onSelect={(item) => onSelectMenu(item.key)}
 			items={[
 				{
-					key: "1",
+					key: "/news-group",
+					label: "Новости",
+					type: "group",
+				},
+				{
+					key: "/list/news",
+					label: "Список новостей",
+					icon: <ReadOutlined />,
+				},
+				{
+					key: "/association",
+					type: "group",
+					label: "Ассоциация",
+				},
+				{
+					key: "/workers",
 					icon: <UserOutlined />,
-					label: "nav 1",
+					label: "Рабочие",
 				},
 				{
-					key: "2",
-					icon: <VideoCameraOutlined />,
-					label: "nav 2",
+					key: "/councils",
+					icon: <TeamOutlined />,
+					label: "Список совета",
 				},
 				{
-					key: "3",
+					key: "/reports",
 					icon: <UploadOutlined />,
-					label: "nav 3",
+					label: "Годовые отчеты",
+				},
+				{
+					key: "/association-group",
+					label: "Деятельность",
+					type: "group",
+				},
+				{
+					key: "/projects",
+					icon: <FileOutlined />,
+					label: "Годовые отчеты",
+				},
+				{
+					key: "/success",
+					icon: <RiseOutlined />,
+					label: "История успеха",
+				},
+				{
+					key: "/study",
+					icon: <CopyOutlined />,
+					label: "Исследование",
+				},
+				{
+					key: "/seminars",
+					icon: <VideoCameraOutlined />,
+					label: "Семинары и конференции",
 				},
 			]}
 		/>

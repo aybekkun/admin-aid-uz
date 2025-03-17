@@ -15,6 +15,7 @@ import { Route as LoginImport } from './routes/login'
 import { Route as LayoutImport } from './routes/_layout'
 import { Route as LayoutIndexImport } from './routes/_layout/index'
 import { Route as LayoutDashboardImport } from './routes/_layout/dashboard'
+import { Route as LayoutListNewsImport } from './routes/_layout/list/news'
 
 // Create/Update Routes
 
@@ -38,6 +39,12 @@ const LayoutIndexRoute = LayoutIndexImport.update({
 const LayoutDashboardRoute = LayoutDashboardImport.update({
   id: '/dashboard',
   path: '/dashboard',
+  getParentRoute: () => LayoutRoute,
+} as any)
+
+const LayoutListNewsRoute = LayoutListNewsImport.update({
+  id: '/list/news',
+  path: '/list/news',
   getParentRoute: () => LayoutRoute,
 } as any)
 
@@ -73,6 +80,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LayoutIndexImport
       parentRoute: typeof LayoutImport
     }
+    '/_layout/list/news': {
+      id: '/_layout/list/news'
+      path: '/list/news'
+      fullPath: '/list/news'
+      preLoaderRoute: typeof LayoutListNewsImport
+      parentRoute: typeof LayoutImport
+    }
   }
 }
 
@@ -81,11 +95,13 @@ declare module '@tanstack/react-router' {
 interface LayoutRouteChildren {
   LayoutDashboardRoute: typeof LayoutDashboardRoute
   LayoutIndexRoute: typeof LayoutIndexRoute
+  LayoutListNewsRoute: typeof LayoutListNewsRoute
 }
 
 const LayoutRouteChildren: LayoutRouteChildren = {
   LayoutDashboardRoute: LayoutDashboardRoute,
   LayoutIndexRoute: LayoutIndexRoute,
+  LayoutListNewsRoute: LayoutListNewsRoute,
 }
 
 const LayoutRouteWithChildren =
@@ -96,12 +112,14 @@ export interface FileRoutesByFullPath {
   '/login': typeof LoginRoute
   '/dashboard': typeof LayoutDashboardRoute
   '/': typeof LayoutIndexRoute
+  '/list/news': typeof LayoutListNewsRoute
 }
 
 export interface FileRoutesByTo {
   '/login': typeof LoginRoute
   '/dashboard': typeof LayoutDashboardRoute
   '/': typeof LayoutIndexRoute
+  '/list/news': typeof LayoutListNewsRoute
 }
 
 export interface FileRoutesById {
@@ -110,14 +128,21 @@ export interface FileRoutesById {
   '/login': typeof LoginRoute
   '/_layout/dashboard': typeof LayoutDashboardRoute
   '/_layout/': typeof LayoutIndexRoute
+  '/_layout/list/news': typeof LayoutListNewsRoute
 }
 
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '' | '/login' | '/dashboard' | '/'
+  fullPaths: '' | '/login' | '/dashboard' | '/' | '/list/news'
   fileRoutesByTo: FileRoutesByTo
-  to: '/login' | '/dashboard' | '/'
-  id: '__root__' | '/_layout' | '/login' | '/_layout/dashboard' | '/_layout/'
+  to: '/login' | '/dashboard' | '/' | '/list/news'
+  id:
+    | '__root__'
+    | '/_layout'
+    | '/login'
+    | '/_layout/dashboard'
+    | '/_layout/'
+    | '/_layout/list/news'
   fileRoutesById: FileRoutesById
 }
 
@@ -149,7 +174,8 @@ export const routeTree = rootRoute
       "filePath": "_layout.tsx",
       "children": [
         "/_layout/dashboard",
-        "/_layout/"
+        "/_layout/",
+        "/_layout/list/news"
       ]
     },
     "/login": {
@@ -161,6 +187,10 @@ export const routeTree = rootRoute
     },
     "/_layout/": {
       "filePath": "_layout/index.tsx",
+      "parent": "/_layout"
+    },
+    "/_layout/list/news": {
+      "filePath": "_layout/list/news.tsx",
       "parent": "/_layout"
     }
   }

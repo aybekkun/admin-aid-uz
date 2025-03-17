@@ -1,7 +1,7 @@
 import { useMessage } from "@/hooks";
 import { keepPreviousData, useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { authService } from "./auth.service";
-import { ResponseError } from "../shared";
+import { TResponseError } from "../shared";
 
 export const useAuthMeQuery = () => {
 	const { message } = useMessage();
@@ -9,7 +9,7 @@ export const useAuthMeQuery = () => {
 		queryFn: () => authService.checkAuthMe(),
 		queryKey: ["login"],
 		placeholderData: keepPreviousData,
-		throwOnError: (error: ResponseError) => {
+		throwOnError: (error: TResponseError) => {
 			message.success({
 				message: error.message,
 				description: error?.response?.data?.message,
@@ -34,7 +34,7 @@ export const useAuthLoginMutation = () => {
 				description: "Login successful",
 			});
 		},
-		onError: (error: ResponseError) => {
+		onError: (error: TResponseError) => {
 			message.error({
 				message: error.message,
 				description: error?.response?.data?.message,

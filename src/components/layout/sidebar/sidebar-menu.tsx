@@ -33,7 +33,7 @@ export const SidebarMenu: FC = () => {
 					type: "group",
 				},
 				{
-					key: "/list/news",
+					key: "/news/list",
 					label: "Список новостей",
 					icon: <ReadOutlined />,
 				},

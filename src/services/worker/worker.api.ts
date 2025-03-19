@@ -1,13 +1,13 @@
 import { keepPreviousData, useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { TGetParams, TParamId, TResponseError } from "../shared";
 import { useMessage } from "@/hooks";
-import { newsService } from "./news.service";
+import { workerService } from "./worker.service";
 
-export const useGetNewsQuery = (params: TGetParams) => {
+export const useGetWorkerQuery = (params: TGetParams) => {
 	const { message } = useMessage();
 	return useQuery({
-		queryFn: () => newsService.get(params),
-		queryKey: ["news", ...Object.values(params)],
+		queryFn: () => workerService.get(params),
+		queryKey: ["worker", ...Object.values(params)],
 		placeholderData: keepPreviousData,
 		throwOnError: (error: TResponseError) => {
 			message.error({
@@ -18,12 +18,12 @@ export const useGetNewsQuery = (params: TGetParams) => {
 		},
 	});
 };
-export const useGetByIdNewsQuery = (id: TParamId) => {
+export const useGetByIdWorkerQuery = (id: TParamId) => {
 	const { message } = useMessage();
 
 	return useQuery({
-		queryFn: () => newsService.getById(id),
-		queryKey: ["news", id],
+		queryFn: () => workerService.getById(id),
+		queryKey: ["worker", id],
 
 		throwOnError: (error: TResponseError) => {
 			message.error({
@@ -35,19 +35,18 @@ export const useGetByIdNewsQuery = (id: TParamId) => {
 		enabled: !!id,
 	});
 };
-export const useCreateNewsMutation = () => {
+export const useCreateWorkerMutation = () => {
 	const { message } = useMessage();
 	const queryClient = useQueryClient();
 	return useMutation({
-		mutationFn: newsService.create,
+		mutationFn: workerService.create,
 		onSuccess: async () => {
-	
 			await queryClient.invalidateQueries({
-				queryKey: ["news"],
+				queryKey: ["worker"],
 			});
 			message.success({
 				message: "Success",
-				description: "News created successfully",
+				description: "Worker created successfully",
 			});
 		},
 		onError: (error: TResponseError) => {
@@ -59,19 +58,18 @@ export const useCreateNewsMutation = () => {
 	});
 };
 
-export const useDeleteNewsMutation = () => {
+export const useDeleteWorkerMutation = () => {
 	const { message } = useMessage();
 	const queryClient = useQueryClient();
 	return useMutation({
-		mutationFn: newsService.delete,
+		mutationFn: workerService.delete,
 		onSuccess: async () => {
-		
 			await queryClient.invalidateQueries({
-				queryKey: ["news"],
+				queryKey: ["worker"],
 			});
 			message.success({
 				message: "Success",
-				description: "News deleted successfully",
+				description: "Worker deleted successfully",
 			});
 		},
 		onError: (error: TResponseError) => {
@@ -83,19 +81,18 @@ export const useDeleteNewsMutation = () => {
 	});
 };
 
-export const useUpdateNewsMutation = () => {
+export const useUpdateWorkerMutation = () => {
 	const { message } = useMessage();
 	const queryClient = useQueryClient();
 	return useMutation({
-		mutationFn: newsService.update,
+		mutationFn: workerService.update,
 		onSuccess: async () => {
-			console.log("Success")
-			await queryClient.refetchQueries({
-				queryKey: ["news"],
+			await queryClient.invalidateQueries({
+				queryKey: ["worker"],
 			});
 			message.success({
 				message: "Success",
-				description: "News updated successfully",
+				description: "Worker updated successfully",
 			});
 		},
 		onError: (error: TResponseError) => {

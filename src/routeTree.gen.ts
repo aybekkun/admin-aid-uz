@@ -15,7 +15,11 @@ import { Route as LoginImport } from './routes/login'
 import { Route as LayoutImport } from './routes/_layout'
 import { Route as LayoutIndexImport } from './routes/_layout/index'
 import { Route as LayoutDashboardImport } from './routes/_layout/dashboard'
-import { Route as LayoutListNewsImport } from './routes/_layout/list/news'
+import { Route as LayoutNewsIndexImport } from './routes/_layout/news/index'
+import { Route as LayoutNewsListImport } from './routes/_layout/news/list'
+import { Route as LayoutNewsCreateImport } from './routes/_layout/news/create'
+import { Route as LayoutNewsIdIndexImport } from './routes/_layout/news/$id/index'
+import { Route as LayoutNewsIdEditImport } from './routes/_layout/news/$id/edit'
 
 // Create/Update Routes
 
@@ -42,9 +46,33 @@ const LayoutDashboardRoute = LayoutDashboardImport.update({
   getParentRoute: () => LayoutRoute,
 } as any)
 
-const LayoutListNewsRoute = LayoutListNewsImport.update({
-  id: '/list/news',
-  path: '/list/news',
+const LayoutNewsIndexRoute = LayoutNewsIndexImport.update({
+  id: '/news/',
+  path: '/news/',
+  getParentRoute: () => LayoutRoute,
+} as any)
+
+const LayoutNewsListRoute = LayoutNewsListImport.update({
+  id: '/news/list',
+  path: '/news/list',
+  getParentRoute: () => LayoutRoute,
+} as any)
+
+const LayoutNewsCreateRoute = LayoutNewsCreateImport.update({
+  id: '/news/create',
+  path: '/news/create',
+  getParentRoute: () => LayoutRoute,
+} as any)
+
+const LayoutNewsIdIndexRoute = LayoutNewsIdIndexImport.update({
+  id: '/news/$id/',
+  path: '/news/$id/',
+  getParentRoute: () => LayoutRoute,
+} as any)
+
+const LayoutNewsIdEditRoute = LayoutNewsIdEditImport.update({
+  id: '/news/$id/edit',
+  path: '/news/$id/edit',
   getParentRoute: () => LayoutRoute,
 } as any)
 
@@ -80,11 +108,39 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LayoutIndexImport
       parentRoute: typeof LayoutImport
     }
-    '/_layout/list/news': {
-      id: '/_layout/list/news'
-      path: '/list/news'
-      fullPath: '/list/news'
-      preLoaderRoute: typeof LayoutListNewsImport
+    '/_layout/news/create': {
+      id: '/_layout/news/create'
+      path: '/news/create'
+      fullPath: '/news/create'
+      preLoaderRoute: typeof LayoutNewsCreateImport
+      parentRoute: typeof LayoutImport
+    }
+    '/_layout/news/list': {
+      id: '/_layout/news/list'
+      path: '/news/list'
+      fullPath: '/news/list'
+      preLoaderRoute: typeof LayoutNewsListImport
+      parentRoute: typeof LayoutImport
+    }
+    '/_layout/news/': {
+      id: '/_layout/news/'
+      path: '/news'
+      fullPath: '/news'
+      preLoaderRoute: typeof LayoutNewsIndexImport
+      parentRoute: typeof LayoutImport
+    }
+    '/_layout/news/$id/edit': {
+      id: '/_layout/news/$id/edit'
+      path: '/news/$id/edit'
+      fullPath: '/news/$id/edit'
+      preLoaderRoute: typeof LayoutNewsIdEditImport
+      parentRoute: typeof LayoutImport
+    }
+    '/_layout/news/$id/': {
+      id: '/_layout/news/$id/'
+      path: '/news/$id'
+      fullPath: '/news/$id'
+      preLoaderRoute: typeof LayoutNewsIdIndexImport
       parentRoute: typeof LayoutImport
     }
   }
@@ -95,13 +151,21 @@ declare module '@tanstack/react-router' {
 interface LayoutRouteChildren {
   LayoutDashboardRoute: typeof LayoutDashboardRoute
   LayoutIndexRoute: typeof LayoutIndexRoute
-  LayoutListNewsRoute: typeof LayoutListNewsRoute
+  LayoutNewsCreateRoute: typeof LayoutNewsCreateRoute
+  LayoutNewsListRoute: typeof LayoutNewsListRoute
+  LayoutNewsIndexRoute: typeof LayoutNewsIndexRoute
+  LayoutNewsIdEditRoute: typeof LayoutNewsIdEditRoute
+  LayoutNewsIdIndexRoute: typeof LayoutNewsIdIndexRoute
 }
 
 const LayoutRouteChildren: LayoutRouteChildren = {
   LayoutDashboardRoute: LayoutDashboardRoute,
   LayoutIndexRoute: LayoutIndexRoute,
-  LayoutListNewsRoute: LayoutListNewsRoute,
+  LayoutNewsCreateRoute: LayoutNewsCreateRoute,
+  LayoutNewsListRoute: LayoutNewsListRoute,
+  LayoutNewsIndexRoute: LayoutNewsIndexRoute,
+  LayoutNewsIdEditRoute: LayoutNewsIdEditRoute,
+  LayoutNewsIdIndexRoute: LayoutNewsIdIndexRoute,
 }
 
 const LayoutRouteWithChildren =
@@ -112,14 +176,22 @@ export interface FileRoutesByFullPath {
   '/login': typeof LoginRoute
   '/dashboard': typeof LayoutDashboardRoute
   '/': typeof LayoutIndexRoute
-  '/list/news': typeof LayoutListNewsRoute
+  '/news/create': typeof LayoutNewsCreateRoute
+  '/news/list': typeof LayoutNewsListRoute
+  '/news': typeof LayoutNewsIndexRoute
+  '/news/$id/edit': typeof LayoutNewsIdEditRoute
+  '/news/$id': typeof LayoutNewsIdIndexRoute
 }
 
 export interface FileRoutesByTo {
   '/login': typeof LoginRoute
   '/dashboard': typeof LayoutDashboardRoute
   '/': typeof LayoutIndexRoute
-  '/list/news': typeof LayoutListNewsRoute
+  '/news/create': typeof LayoutNewsCreateRoute
+  '/news/list': typeof LayoutNewsListRoute
+  '/news': typeof LayoutNewsIndexRoute
+  '/news/$id/edit': typeof LayoutNewsIdEditRoute
+  '/news/$id': typeof LayoutNewsIdIndexRoute
 }
 
 export interface FileRoutesById {
@@ -128,21 +200,46 @@ export interface FileRoutesById {
   '/login': typeof LoginRoute
   '/_layout/dashboard': typeof LayoutDashboardRoute
   '/_layout/': typeof LayoutIndexRoute
-  '/_layout/list/news': typeof LayoutListNewsRoute
+  '/_layout/news/create': typeof LayoutNewsCreateRoute
+  '/_layout/news/list': typeof LayoutNewsListRoute
+  '/_layout/news/': typeof LayoutNewsIndexRoute
+  '/_layout/news/$id/edit': typeof LayoutNewsIdEditRoute
+  '/_layout/news/$id/': typeof LayoutNewsIdIndexRoute
 }
 
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '' | '/login' | '/dashboard' | '/' | '/list/news'
+  fullPaths:
+    | ''
+    | '/login'
+    | '/dashboard'
+    | '/'
+    | '/news/create'
+    | '/news/list'
+    | '/news'
+    | '/news/$id/edit'
+    | '/news/$id'
   fileRoutesByTo: FileRoutesByTo
-  to: '/login' | '/dashboard' | '/' | '/list/news'
+  to:
+    | '/login'
+    | '/dashboard'
+    | '/'
+    | '/news/create'
+    | '/news/list'
+    | '/news'
+    | '/news/$id/edit'
+    | '/news/$id'
   id:
     | '__root__'
     | '/_layout'
     | '/login'
     | '/_layout/dashboard'
     | '/_layout/'
-    | '/_layout/list/news'
+    | '/_layout/news/create'
+    | '/_layout/news/list'
+    | '/_layout/news/'
+    | '/_layout/news/$id/edit'
+    | '/_layout/news/$id/'
   fileRoutesById: FileRoutesById
 }
 
@@ -175,7 +272,11 @@ export const routeTree = rootRoute
       "children": [
         "/_layout/dashboard",
         "/_layout/",
-        "/_layout/list/news"
+        "/_layout/news/create",
+        "/_layout/news/list",
+        "/_layout/news/",
+        "/_layout/news/$id/edit",
+        "/_layout/news/$id/"
       ]
     },
     "/login": {
@@ -189,8 +290,24 @@ export const routeTree = rootRoute
       "filePath": "_layout/index.tsx",
       "parent": "/_layout"
     },
-    "/_layout/list/news": {
-      "filePath": "_layout/list/news.tsx",
+    "/_layout/news/create": {
+      "filePath": "_layout/news/create.tsx",
+      "parent": "/_layout"
+    },
+    "/_layout/news/list": {
+      "filePath": "_layout/news/list.tsx",
+      "parent": "/_layout"
+    },
+    "/_layout/news/": {
+      "filePath": "_layout/news/index.tsx",
+      "parent": "/_layout"
+    },
+    "/_layout/news/$id/edit": {
+      "filePath": "_layout/news/$id/edit.tsx",
+      "parent": "/_layout"
+    },
+    "/_layout/news/$id/": {
+      "filePath": "_layout/news/$id/index.tsx",
       "parent": "/_layout"
     }
   }

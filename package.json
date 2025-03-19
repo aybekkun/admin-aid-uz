@@ -14,6 +14,7 @@
     "@tanstack/react-query": "^5.68.0",
     "@tanstack/react-query-devtools": "^5.68.0",
     "@tanstack/react-router": "^1.114.17",
+    "@tinymce/tinymce-react": "^6.0.0",
     "@types/react": "^18.3.18",
     "@types/react-dom": "^18.3.5",
     "antd": "^5.24.3",

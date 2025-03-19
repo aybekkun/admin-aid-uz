@@ -2,8 +2,8 @@ import { NewTables } from "@/components/screens/news/tables/new-tables";
 import { TGetParams } from "@/services/shared";
 import { createFileRoute } from "@tanstack/react-router";
 
-export const Route = createFileRoute("/_layout/list/news")({
-	component: NewListComponent,
+export const Route = createFileRoute("/_layout/news/list")({
+	component: NewsListComponent,
 	validateSearch: (search: TGetParams) => {
 		const params: TGetParams = {};
 		if (search?.page) params.page = search.page;
@@ -12,7 +12,7 @@ export const Route = createFileRoute("/_layout/list/news")({
 	},
 });
 
-function NewListComponent() {
+function NewsListComponent() {
 	const params = Route.useSearch();
 	const navigate = Route.useNavigate();
 

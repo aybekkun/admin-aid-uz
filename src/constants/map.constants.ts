@@ -1,0 +1,1 @@
+export const LANG_MAP = ["ru", "uz", "kaa", "en"];

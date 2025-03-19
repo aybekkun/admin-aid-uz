@@ -1,17 +1,17 @@
-export type TNews = {
+export type TWorker = {
 	id: number;
-	title: string;
+	full_name: string;
 	description: string;
-	content: string;
+	position: string;
 	image: string;
 	created_at: Date;
 	updated_at: Date;
 	slug: string;
 };
 
-export type TNewsWithLang = {
+export type TWorkerWithLang = {
 	id: number;
-	title: {
+	full_name: {
 		en: string;
 		ru: string;
 		uz: string;
@@ -23,7 +23,7 @@ export type TNewsWithLang = {
 		uz: string;
 		kaa: string;
 	};
-	content: {
+	position: {
 		en: string;
 		ru: string;
 		uz: string;
@@ -35,18 +35,18 @@ export type TNewsWithLang = {
 	slug: string;
 };
 
-export type TNewsForm = {
-	title_en: string;
-	title_ru: string;
-	title_uz: string;
-	title_kaa: string;
+export type TWorkerForm = {
+	full_name_en: string;
+	full_name_ru: string;
+	full_name_uz: string;
+	full_name_kaa: string;
 	description_en: string;
 	description_ru: string;
 	description_uz: string;
 	description_kaa: string;
-	content_en: string;
-	content_ru: string;
-	content_uz: string;
-	content_kaa: string;
+	position_en: string;
+	position_ru: string;
+	position_uz: string;
+	position_kaa: string;
 	image: File;
 };

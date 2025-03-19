@@ -1,9 +1,10 @@
 import { FC } from "react";
-import { Table } from "antd";
-
-import { useGetNewsQuery } from "@/services/news";
+import { TNews, useGetNewsQuery } from "@/services/news";
 import { TGetParams } from "@/services/shared";
 import { useNewsColumns } from "../hooks/use-news-columns";
+import { DataTable } from "@/components/ui";
+import { Link } from "@tanstack/react-router";
+import { Button } from "antd";
 
 type Props = {
 	params: TGetParams;
@@ -16,14 +17,19 @@ export const NewTables: FC<Props> = ({ params, onChangeParams }) => {
 
 	const columns = useNewsColumns();
 	return (
-		<Table
-			title={() => "Новости"}
+		<DataTable<TNews>
+			title={"Новости"}
 			rowKey={(record) => record.id}
 			columns={columns}
 			loading={isLoading || isFetching}
 			dataSource={data?.data}
+			extra={
+				<Link to="/news/create">
+					<Button>Добавить</Button>
+				</Link>
+			}
 			pagination={{
-                defaultCurrent: page,
+				defaultCurrent: page,
 				total: data?.pagination?.count,
 				onChange: (page, limit) => {
 					onChangeParams({ page, limit });

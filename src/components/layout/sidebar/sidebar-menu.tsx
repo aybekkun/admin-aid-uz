@@ -43,17 +43,22 @@ export const SidebarMenu: FC = () => {
 					label: "Ассоциация",
 				},
 				{
-					key: "/workers",
+					key: "/worker/list",
 					icon: <UserOutlined />,
 					label: "Рабочие",
 				},
 				{
-					key: "/councils",
+					key: "/council/list",
 					icon: <TeamOutlined />,
 					label: "Список совета",
 				},
 				{
-					key: "/reports",
+					key: "/members/list",
+					icon: <TeamOutlined />,
+					label: "Список членов",
+				},
+				{
+					key: "/reports/list",
 					icon: <UploadOutlined />,
 					label: "Годовые отчеты",
 				},
@@ -63,17 +68,17 @@ export const SidebarMenu: FC = () => {
 					type: "group",
 				},
 				{
-					key: "/projects",
+					key: "/projects/list",
 					icon: <FileOutlined />,
-					label: "Годовые отчеты",
+					label: "Проекты",
 				},
 				{
-					key: "/success",
+					key: "/success/list",
 					icon: <RiseOutlined />,
 					label: "История успеха",
 				},
 				{
-					key: "/study",
+					key: "/study/list",
 					icon: <CopyOutlined />,
 					label: "Исследование",
 				},

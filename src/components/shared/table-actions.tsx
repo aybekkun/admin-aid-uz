@@ -1,10 +1,10 @@
 import { TParamId } from "@/services/shared";
-import { DeleteOutlined, EditOutlined, EyeOutlined } from "@ant-design/icons";
+import { DeleteOutlined, EditOutlined /* EyeOutlined */ } from "@ant-design/icons";
 import { Link } from "@tanstack/react-router";
 
 import { Button, Flex, Popconfirm, Tooltip } from "antd";
 interface TableActionsProps<T extends object> {
-	type: "news" | "users";
+	type: "news" | "users" | "worker" | "council" | "members" | "reports" | "projects" | "success" | "study";
 	id: TParamId;
 	record?: T;
 	isPending: boolean;
@@ -14,6 +14,13 @@ interface TableActionsProps<T extends object> {
 const HREF_MAP = {
 	news: "/news/$id",
 	users: "/users/$id",
+	worker: "/worker/$id",
+	council: "/council/$id",
+	members: "/members/$id",
+	reports: "/reports/$id",
+	projects: "/projects/$id",
+	success: "/success/$id",
+	study: "/study/$id",
 };
 
 export const TableActions = <T extends object>({ id, type, deleteItem, isPending }: TableActionsProps<T>) => {
@@ -22,9 +29,9 @@ export const TableActions = <T extends object>({ id, type, deleteItem, isPending
 	};
 	return (
 		<Flex gap={"small"}>
-			<Tooltip title="Посмотреть">
+			{/* 	<Tooltip title="Посмотреть">
 				<Button disabled={isPending} type="primary" shape="circle" size="small" icon={<EyeOutlined />} />
-			</Tooltip>
+			</Tooltip> */}
 			<Tooltip title="Редактировать">
 				<Link to={HREF_MAP[type] + "/edit"} params={{ id: String(id) }}>
 					<Button disabled={isPending} type="dashed" shape="circle" size="small" icon={<EditOutlined />} />

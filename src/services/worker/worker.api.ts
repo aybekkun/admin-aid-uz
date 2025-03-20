@@ -12,7 +12,7 @@ export const useGetWorkerQuery = (params: TGetParams) => {
 		throwOnError: (error: TResponseError) => {
 			message.error({
 				message: error.message,
-				description: error?.response?.data?.message,
+				description: error?.response?.data?.errors?.[0],
 			});
 			throw error;
 		},
@@ -23,12 +23,12 @@ export const useGetByIdWorkerQuery = (id: TParamId) => {
 
 	return useQuery({
 		queryFn: () => workerService.getById(id),
-		queryKey: ["worker", id],
+		queryKey: ["worker", "id,", id],
 
 		throwOnError: (error: TResponseError) => {
 			message.error({
 				message: error.message,
-				description: error?.response?.data?.message,
+				description: error?.response?.data?.errors?.[0],
 			});
 			throw error;
 		},
@@ -41,7 +41,7 @@ export const useCreateWorkerMutation = () => {
 	return useMutation({
 		mutationFn: workerService.create,
 		onSuccess: async () => {
-			await queryClient.invalidateQueries({
+			await queryClient.refetchQueries({
 				queryKey: ["worker"],
 			});
 			message.success({
@@ -52,7 +52,7 @@ export const useCreateWorkerMutation = () => {
 		onError: (error: TResponseError) => {
 			message.error({
 				message: error.message,
-				description: error?.response?.data?.message,
+				description: error?.response?.data?.errors?.[0],
 			});
 		},
 	});
@@ -75,7 +75,7 @@ export const useDeleteWorkerMutation = () => {
 		onError: (error: TResponseError) => {
 			message.error({
 				message: error.message,
-				description: error?.response?.data?.message,
+				description: error?.response?.data?.errors?.[0],
 			});
 		},
 	});
@@ -87,7 +87,7 @@ export const useUpdateWorkerMutation = () => {
 	return useMutation({
 		mutationFn: workerService.update,
 		onSuccess: async () => {
-			await queryClient.invalidateQueries({
+			await queryClient.refetchQueries({
 				queryKey: ["worker"],
 			});
 			message.success({
@@ -98,7 +98,7 @@ export const useUpdateWorkerMutation = () => {
 		onError: (error: TResponseError) => {
 			message.error({
 				message: error.message,
-				description: error?.response?.data?.message,
+				description: error?.response?.data?.errors?.[0],
 			});
 		},
 	});

@@ -12,7 +12,7 @@ export const useGetNewsQuery = (params: TGetParams) => {
 		throwOnError: (error: TResponseError) => {
 			message.error({
 				message: error.message,
-				description: error?.response?.data?.message,
+				description: error?.response?.data?.errors?.[0],
 			});
 			throw error;
 		},
@@ -23,12 +23,13 @@ export const useGetByIdNewsQuery = (id: TParamId) => {
 
 	return useQuery({
 		queryFn: () => newsService.getById(id),
-		queryKey: ["news", id],
+		queryKey: ["news", "id", id],
 
 		throwOnError: (error: TResponseError) => {
+			console.log(error);
 			message.error({
 				message: error.message,
-				description: error?.response?.data?.message,
+				description: error?.response?.data?.errors?.[0],
 			});
 			throw error;
 		},
@@ -41,8 +42,7 @@ export const useCreateNewsMutation = () => {
 	return useMutation({
 		mutationFn: newsService.create,
 		onSuccess: async () => {
-	
-			await queryClient.invalidateQueries({
+			await queryClient.refetchQueries({
 				queryKey: ["news"],
 			});
 			message.success({
@@ -53,7 +53,7 @@ export const useCreateNewsMutation = () => {
 		onError: (error: TResponseError) => {
 			message.error({
 				message: error.message,
-				description: error?.response?.data?.message,
+				description: error?.response?.data?.errors?.[0],
 			});
 		},
 	});
@@ -65,8 +65,7 @@ export const useDeleteNewsMutation = () => {
 	return useMutation({
 		mutationFn: newsService.delete,
 		onSuccess: async () => {
-		
-			await queryClient.invalidateQueries({
+			await queryClient.refetchQueries({
 				queryKey: ["news"],
 			});
 			message.success({
@@ -77,7 +76,7 @@ export const useDeleteNewsMutation = () => {
 		onError: (error: TResponseError) => {
 			message.error({
 				message: error.message,
-				description: error?.response?.data?.message,
+				description: error?.response?.data?.errors?.[0],
 			});
 		},
 	});
@@ -89,7 +88,7 @@ export const useUpdateNewsMutation = () => {
 	return useMutation({
 		mutationFn: newsService.update,
 		onSuccess: async () => {
-			console.log("Success")
+			console.log("Success");
 			await queryClient.refetchQueries({
 				queryKey: ["news"],
 			});
@@ -101,7 +100,7 @@ export const useUpdateNewsMutation = () => {
 		onError: (error: TResponseError) => {
 			message.error({
 				message: error.message,
-				description: error?.response?.data?.message,
+				description: error?.response?.data?.errors?.[0],
 			});
 		},
 	});

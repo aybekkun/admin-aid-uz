@@ -18,7 +18,7 @@ export type TResponseSingleData<T> = {
 
 export type TResponseError = AxiosError<{
 	message?: string;
-	error?: string[];
+	errors?: string[];
 }>;
 
 export type TPagination = {

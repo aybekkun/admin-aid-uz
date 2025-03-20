@@ -15,11 +15,46 @@ import { Route as LoginImport } from './routes/login'
 import { Route as LayoutImport } from './routes/_layout'
 import { Route as LayoutIndexImport } from './routes/_layout/index'
 import { Route as LayoutDashboardImport } from './routes/_layout/dashboard'
+import { Route as LayoutWorkerIndexImport } from './routes/_layout/worker/index'
+import { Route as LayoutSuccessIndexImport } from './routes/_layout/success/index'
+import { Route as LayoutStudyIndexImport } from './routes/_layout/study/index'
+import { Route as LayoutReportsIndexImport } from './routes/_layout/reports/index'
+import { Route as LayoutProjectsIndexImport } from './routes/_layout/projects/index'
 import { Route as LayoutNewsIndexImport } from './routes/_layout/news/index'
+import { Route as LayoutMembersIndexImport } from './routes/_layout/members/index'
+import { Route as LayoutCouncilIndexImport } from './routes/_layout/council/index'
+import { Route as LayoutWorkerListImport } from './routes/_layout/worker/list'
+import { Route as LayoutWorkerCreateImport } from './routes/_layout/worker/create'
+import { Route as LayoutSuccessListImport } from './routes/_layout/success/list'
+import { Route as LayoutSuccessCreateImport } from './routes/_layout/success/create'
+import { Route as LayoutStudyListImport } from './routes/_layout/study/list'
+import { Route as LayoutStudyCreateImport } from './routes/_layout/study/create'
+import { Route as LayoutReportsListImport } from './routes/_layout/reports/list'
+import { Route as LayoutReportsCreateImport } from './routes/_layout/reports/create'
+import { Route as LayoutProjectsListImport } from './routes/_layout/projects/list'
+import { Route as LayoutProjectsCreateImport } from './routes/_layout/projects/create'
 import { Route as LayoutNewsListImport } from './routes/_layout/news/list'
 import { Route as LayoutNewsCreateImport } from './routes/_layout/news/create'
+import { Route as LayoutMembersListImport } from './routes/_layout/members/list'
+import { Route as LayoutMembersCreateImport } from './routes/_layout/members/create'
+import { Route as LayoutCouncilListImport } from './routes/_layout/council/list'
+import { Route as LayoutCouncilCreateImport } from './routes/_layout/council/create'
+import { Route as LayoutWorkerIdIndexImport } from './routes/_layout/worker/$id/index'
+import { Route as LayoutSuccessIdIndexImport } from './routes/_layout/success/$id/index'
+import { Route as LayoutStudyIdIndexImport } from './routes/_layout/study/$id/index'
+import { Route as LayoutReportsIdIndexImport } from './routes/_layout/reports/$id/index'
+import { Route as LayoutProjectsIdIndexImport } from './routes/_layout/projects/$id/index'
 import { Route as LayoutNewsIdIndexImport } from './routes/_layout/news/$id/index'
+import { Route as LayoutMembersIdIndexImport } from './routes/_layout/members/$id/index'
+import { Route as LayoutCouncilIdIndexImport } from './routes/_layout/council/$id/index'
+import { Route as LayoutWorkerIdEditImport } from './routes/_layout/worker/$id/edit'
+import { Route as LayoutSuccessIdEditImport } from './routes/_layout/success/$id/edit'
+import { Route as LayoutStudyIdEditImport } from './routes/_layout/study/$id/edit'
+import { Route as LayoutReportsIdEditImport } from './routes/_layout/reports/$id/edit'
+import { Route as LayoutProjectsIdEditImport } from './routes/_layout/projects/$id/edit'
 import { Route as LayoutNewsIdEditImport } from './routes/_layout/news/$id/edit'
+import { Route as LayoutMembersIdEditImport } from './routes/_layout/members/$id/edit'
+import { Route as LayoutCouncilIdEditImport } from './routes/_layout/council/$id/edit'
 
 // Create/Update Routes
 
@@ -46,9 +81,111 @@ const LayoutDashboardRoute = LayoutDashboardImport.update({
   getParentRoute: () => LayoutRoute,
 } as any)
 
+const LayoutWorkerIndexRoute = LayoutWorkerIndexImport.update({
+  id: '/worker/',
+  path: '/worker/',
+  getParentRoute: () => LayoutRoute,
+} as any)
+
+const LayoutSuccessIndexRoute = LayoutSuccessIndexImport.update({
+  id: '/success/',
+  path: '/success/',
+  getParentRoute: () => LayoutRoute,
+} as any)
+
+const LayoutStudyIndexRoute = LayoutStudyIndexImport.update({
+  id: '/study/',
+  path: '/study/',
+  getParentRoute: () => LayoutRoute,
+} as any)
+
+const LayoutReportsIndexRoute = LayoutReportsIndexImport.update({
+  id: '/reports/',
+  path: '/reports/',
+  getParentRoute: () => LayoutRoute,
+} as any)
+
+const LayoutProjectsIndexRoute = LayoutProjectsIndexImport.update({
+  id: '/projects/',
+  path: '/projects/',
+  getParentRoute: () => LayoutRoute,
+} as any)
+
 const LayoutNewsIndexRoute = LayoutNewsIndexImport.update({
   id: '/news/',
   path: '/news/',
+  getParentRoute: () => LayoutRoute,
+} as any)
+
+const LayoutMembersIndexRoute = LayoutMembersIndexImport.update({
+  id: '/members/',
+  path: '/members/',
+  getParentRoute: () => LayoutRoute,
+} as any)
+
+const LayoutCouncilIndexRoute = LayoutCouncilIndexImport.update({
+  id: '/council/',
+  path: '/council/',
+  getParentRoute: () => LayoutRoute,
+} as any)
+
+const LayoutWorkerListRoute = LayoutWorkerListImport.update({
+  id: '/worker/list',
+  path: '/worker/list',
+  getParentRoute: () => LayoutRoute,
+} as any)
+
+const LayoutWorkerCreateRoute = LayoutWorkerCreateImport.update({
+  id: '/worker/create',
+  path: '/worker/create',
+  getParentRoute: () => LayoutRoute,
+} as any)
+
+const LayoutSuccessListRoute = LayoutSuccessListImport.update({
+  id: '/success/list',
+  path: '/success/list',
+  getParentRoute: () => LayoutRoute,
+} as any)
+
+const LayoutSuccessCreateRoute = LayoutSuccessCreateImport.update({
+  id: '/success/create',
+  path: '/success/create',
+  getParentRoute: () => LayoutRoute,
+} as any)
+
+const LayoutStudyListRoute = LayoutStudyListImport.update({
+  id: '/study/list',
+  path: '/study/list',
+  getParentRoute: () => LayoutRoute,
+} as any)
+
+const LayoutStudyCreateRoute = LayoutStudyCreateImport.update({
+  id: '/study/create',
+  path: '/study/create',
+  getParentRoute: () => LayoutRoute,
+} as any)
+
+const LayoutReportsListRoute = LayoutReportsListImport.update({
+  id: '/reports/list',
+  path: '/reports/list',
+  getParentRoute: () => LayoutRoute,
+} as any)
+
+const LayoutReportsCreateRoute = LayoutReportsCreateImport.update({
+  id: '/reports/create',
+  path: '/reports/create',
+  getParentRoute: () => LayoutRoute,
+} as any)
+
+const LayoutProjectsListRoute = LayoutProjectsListImport.update({
+  id: '/projects/list',
+  path: '/projects/list',
+  getParentRoute: () => LayoutRoute,
+} as any)
+
+const LayoutProjectsCreateRoute = LayoutProjectsCreateImport.update({
+  id: '/projects/create',
+  path: '/projects/create',
   getParentRoute: () => LayoutRoute,
 } as any)
 
@@ -64,15 +201,123 @@ const LayoutNewsCreateRoute = LayoutNewsCreateImport.update({
   getParentRoute: () => LayoutRoute,
 } as any)
 
+const LayoutMembersListRoute = LayoutMembersListImport.update({
+  id: '/members/list',
+  path: '/members/list',
+  getParentRoute: () => LayoutRoute,
+} as any)
+
+const LayoutMembersCreateRoute = LayoutMembersCreateImport.update({
+  id: '/members/create',
+  path: '/members/create',
+  getParentRoute: () => LayoutRoute,
+} as any)
+
+const LayoutCouncilListRoute = LayoutCouncilListImport.update({
+  id: '/council/list',
+  path: '/council/list',
+  getParentRoute: () => LayoutRoute,
+} as any)
+
+const LayoutCouncilCreateRoute = LayoutCouncilCreateImport.update({
+  id: '/council/create',
+  path: '/council/create',
+  getParentRoute: () => LayoutRoute,
+} as any)
+
+const LayoutWorkerIdIndexRoute = LayoutWorkerIdIndexImport.update({
+  id: '/worker/$id/',
+  path: '/worker/$id/',
+  getParentRoute: () => LayoutRoute,
+} as any)
+
+const LayoutSuccessIdIndexRoute = LayoutSuccessIdIndexImport.update({
+  id: '/success/$id/',
+  path: '/success/$id/',
+  getParentRoute: () => LayoutRoute,
+} as any)
+
+const LayoutStudyIdIndexRoute = LayoutStudyIdIndexImport.update({
+  id: '/study/$id/',
+  path: '/study/$id/',
+  getParentRoute: () => LayoutRoute,
+} as any)
+
+const LayoutReportsIdIndexRoute = LayoutReportsIdIndexImport.update({
+  id: '/reports/$id/',
+  path: '/reports/$id/',
+  getParentRoute: () => LayoutRoute,
+} as any)
+
+const LayoutProjectsIdIndexRoute = LayoutProjectsIdIndexImport.update({
+  id: '/projects/$id/',
+  path: '/projects/$id/',
+  getParentRoute: () => LayoutRoute,
+} as any)
+
 const LayoutNewsIdIndexRoute = LayoutNewsIdIndexImport.update({
   id: '/news/$id/',
   path: '/news/$id/',
   getParentRoute: () => LayoutRoute,
 } as any)
 
+const LayoutMembersIdIndexRoute = LayoutMembersIdIndexImport.update({
+  id: '/members/$id/',
+  path: '/members/$id/',
+  getParentRoute: () => LayoutRoute,
+} as any)
+
+const LayoutCouncilIdIndexRoute = LayoutCouncilIdIndexImport.update({
+  id: '/council/$id/',
+  path: '/council/$id/',
+  getParentRoute: () => LayoutRoute,
+} as any)
+
+const LayoutWorkerIdEditRoute = LayoutWorkerIdEditImport.update({
+  id: '/worker/$id/edit',
+  path: '/worker/$id/edit',
+  getParentRoute: () => LayoutRoute,
+} as any)
+
+const LayoutSuccessIdEditRoute = LayoutSuccessIdEditImport.update({
+  id: '/success/$id/edit',
+  path: '/success/$id/edit',
+  getParentRoute: () => LayoutRoute,
+} as any)
+
+const LayoutStudyIdEditRoute = LayoutStudyIdEditImport.update({
+  id: '/study/$id/edit',
+  path: '/study/$id/edit',
+  getParentRoute: () => LayoutRoute,
+} as any)
+
+const LayoutReportsIdEditRoute = LayoutReportsIdEditImport.update({
+  id: '/reports/$id/edit',
+  path: '/reports/$id/edit',
+  getParentRoute: () => LayoutRoute,
+} as any)
+
+const LayoutProjectsIdEditRoute = LayoutProjectsIdEditImport.update({
+  id: '/projects/$id/edit',
+  path: '/projects/$id/edit',
+  getParentRoute: () => LayoutRoute,
+} as any)
+
 const LayoutNewsIdEditRoute = LayoutNewsIdEditImport.update({
   id: '/news/$id/edit',
   path: '/news/$id/edit',
+  getParentRoute: () => LayoutRoute,
+} as any)
+
+const LayoutMembersIdEditRoute = LayoutMembersIdEditImport.update({
+  id: '/members/$id/edit',
+  path: '/members/$id/edit',
+  getParentRoute: () => LayoutRoute,
+} as any)
+
+const LayoutCouncilIdEditRoute = LayoutCouncilIdEditImport.update({
+  id: '/council/$id/edit',
+  path: '/council/$id/edit',
   getParentRoute: () => LayoutRoute,
 } as any)
 
@@ -108,6 +353,34 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LayoutIndexImport
       parentRoute: typeof LayoutImport
     }
+    '/_layout/council/create': {
+      id: '/_layout/council/create'
+      path: '/council/create'
+      fullPath: '/council/create'
+      preLoaderRoute: typeof LayoutCouncilCreateImport
+      parentRoute: typeof LayoutImport
+    }
+    '/_layout/council/list': {
+      id: '/_layout/council/list'
+      path: '/council/list'
+      fullPath: '/council/list'
+      preLoaderRoute: typeof LayoutCouncilListImport
+      parentRoute: typeof LayoutImport
+    }
+    '/_layout/members/create': {
+      id: '/_layout/members/create'
+      path: '/members/create'
+      fullPath: '/members/create'
+      preLoaderRoute: typeof LayoutMembersCreateImport
+      parentRoute: typeof LayoutImport
+    }
+    '/_layout/members/list': {
+      id: '/_layout/members/list'
+      path: '/members/list'
+      fullPath: '/members/list'
+      preLoaderRoute: typeof LayoutMembersListImport
+      parentRoute: typeof LayoutImport
+    }
     '/_layout/news/create': {
       id: '/_layout/news/create'
       path: '/news/create'
@@ -122,11 +395,144 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LayoutNewsListImport
       parentRoute: typeof LayoutImport
     }
+    '/_layout/projects/create': {
+      id: '/_layout/projects/create'
+      path: '/projects/create'
+      fullPath: '/projects/create'
+      preLoaderRoute: typeof LayoutProjectsCreateImport
+      parentRoute: typeof LayoutImport
+    }
+    '/_layout/projects/list': {
+      id: '/_layout/projects/list'
+      path: '/projects/list'
+      fullPath: '/projects/list'
+      preLoaderRoute: typeof LayoutProjectsListImport
+      parentRoute: typeof LayoutImport
+    }
+    '/_layout/reports/create': {
+      id: '/_layout/reports/create'
+      path: '/reports/create'
+      fullPath: '/reports/create'
+      preLoaderRoute: typeof LayoutReportsCreateImport
+      parentRoute: typeof LayoutImport
+    }
+    '/_layout/reports/list': {
+      id: '/_layout/reports/list'
+      path: '/reports/list'
+      fullPath: '/reports/list'
+      preLoaderRoute: typeof LayoutReportsListImport
+      parentRoute: typeof LayoutImport
+    }
+    '/_layout/study/create': {
+      id: '/_layout/study/create'
+      path: '/study/create'
+      fullPath: '/study/create'
+      preLoaderRoute: typeof LayoutStudyCreateImport
+      parentRoute: typeof LayoutImport
+    }
+    '/_layout/study/list': {
+      id: '/_layout/study/list'
+      path: '/study/list'
+      fullPath: '/study/list'
+      preLoaderRoute: typeof LayoutStudyListImport
+      parentRoute: typeof LayoutImport
+    }
+    '/_layout/success/create': {
+      id: '/_layout/success/create'
+      path: '/success/create'
+      fullPath: '/success/create'
+      preLoaderRoute: typeof LayoutSuccessCreateImport
+      parentRoute: typeof LayoutImport
+    }
+    '/_layout/success/list': {
+      id: '/_layout/success/list'
+      path: '/success/list'
+      fullPath: '/success/list'
+      preLoaderRoute: typeof LayoutSuccessListImport
+      parentRoute: typeof LayoutImport
+    }
+    '/_layout/worker/create': {
+      id: '/_layout/worker/create'
+      path: '/worker/create'
+      fullPath: '/worker/create'
+      preLoaderRoute: typeof LayoutWorkerCreateImport
+      parentRoute: typeof LayoutImport
+    }
+    '/_layout/worker/list': {
+      id: '/_layout/worker/list'
+      path: '/worker/list'
+      fullPath: '/worker/list'
+      preLoaderRoute: typeof LayoutWorkerListImport
+      parentRoute: typeof LayoutImport
+    }
+    '/_layout/council/': {
+      id: '/_layout/council/'
+      path: '/council'
+      fullPath: '/council'
+      preLoaderRoute: typeof LayoutCouncilIndexImport
+      parentRoute: typeof LayoutImport
+    }
+    '/_layout/members/': {
+      id: '/_layout/members/'
+      path: '/members'
+      fullPath: '/members'
+      preLoaderRoute: typeof LayoutMembersIndexImport
+      parentRoute: typeof LayoutImport
+    }
     '/_layout/news/': {
       id: '/_layout/news/'
       path: '/news'
       fullPath: '/news'
       preLoaderRoute: typeof LayoutNewsIndexImport
+      parentRoute: typeof LayoutImport
+    }
+    '/_layout/projects/': {
+      id: '/_layout/projects/'
+      path: '/projects'
+      fullPath: '/projects'
+      preLoaderRoute: typeof LayoutProjectsIndexImport
+      parentRoute: typeof LayoutImport
+    }
+    '/_layout/reports/': {
+      id: '/_layout/reports/'
+      path: '/reports'
+      fullPath: '/reports'
+      preLoaderRoute: typeof LayoutReportsIndexImport
+      parentRoute: typeof LayoutImport
+    }
+    '/_layout/study/': {
+      id: '/_layout/study/'
+      path: '/study'
+      fullPath: '/study'
+      preLoaderRoute: typeof LayoutStudyIndexImport
+      parentRoute: typeof LayoutImport
+    }
+    '/_layout/success/': {
+      id: '/_layout/success/'
+      path: '/success'
+      fullPath: '/success'
+      preLoaderRoute: typeof LayoutSuccessIndexImport
+      parentRoute: typeof LayoutImport
+    }
+    '/_layout/worker/': {
+      id: '/_layout/worker/'
+      path: '/worker'
+      fullPath: '/worker'
+      preLoaderRoute: typeof LayoutWorkerIndexImport
+      parentRoute: typeof LayoutImport
+    }
+    '/_layout/council/$id/edit': {
+      id: '/_layout/council/$id/edit'
+      path: '/council/$id/edit'
+      fullPath: '/council/$id/edit'
+      preLoaderRoute: typeof LayoutCouncilIdEditImport
+      parentRoute: typeof LayoutImport
+    }
+    '/_layout/members/$id/edit': {
+      id: '/_layout/members/$id/edit'
+      path: '/members/$id/edit'
+      fullPath: '/members/$id/edit'
+      preLoaderRoute: typeof LayoutMembersIdEditImport
       parentRoute: typeof LayoutImport
     }
     '/_layout/news/$id/edit': {
@@ -136,11 +542,95 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LayoutNewsIdEditImport
       parentRoute: typeof LayoutImport
     }
+    '/_layout/projects/$id/edit': {
+      id: '/_layout/projects/$id/edit'
+      path: '/projects/$id/edit'
+      fullPath: '/projects/$id/edit'
+      preLoaderRoute: typeof LayoutProjectsIdEditImport
+      parentRoute: typeof LayoutImport
+    }
+    '/_layout/reports/$id/edit': {
+      id: '/_layout/reports/$id/edit'
+      path: '/reports/$id/edit'
+      fullPath: '/reports/$id/edit'
+      preLoaderRoute: typeof LayoutReportsIdEditImport
+      parentRoute: typeof LayoutImport
+    }
+    '/_layout/study/$id/edit': {
+      id: '/_layout/study/$id/edit'
+      path: '/study/$id/edit'
+      fullPath: '/study/$id/edit'
+      preLoaderRoute: typeof LayoutStudyIdEditImport
+      parentRoute: typeof LayoutImport
+    }
+    '/_layout/success/$id/edit': {
+      id: '/_layout/success/$id/edit'
+      path: '/success/$id/edit'
+      fullPath: '/success/$id/edit'
+      preLoaderRoute: typeof LayoutSuccessIdEditImport
+      parentRoute: typeof LayoutImport
+    }
+    '/_layout/worker/$id/edit': {
+      id: '/_layout/worker/$id/edit'
+      path: '/worker/$id/edit'
+      fullPath: '/worker/$id/edit'
+      preLoaderRoute: typeof LayoutWorkerIdEditImport
+      parentRoute: typeof LayoutImport
+    }
+    '/_layout/council/$id/': {
+      id: '/_layout/council/$id/'
+      path: '/council/$id'
+      fullPath: '/council/$id'
+      preLoaderRoute: typeof LayoutCouncilIdIndexImport
+      parentRoute: typeof LayoutImport
+    }
+    '/_layout/members/$id/': {
+      id: '/_layout/members/$id/'
+      path: '/members/$id'
+      fullPath: '/members/$id'
+      preLoaderRoute: typeof LayoutMembersIdIndexImport
+      parentRoute: typeof LayoutImport
+    }
     '/_layout/news/$id/': {
       id: '/_layout/news/$id/'
       path: '/news/$id'
       fullPath: '/news/$id'
       preLoaderRoute: typeof LayoutNewsIdIndexImport
+      parentRoute: typeof LayoutImport
+    }
+    '/_layout/projects/$id/': {
+      id: '/_layout/projects/$id/'
+      path: '/projects/$id'
+      fullPath: '/projects/$id'
+      preLoaderRoute: typeof LayoutProjectsIdIndexImport
+      parentRoute: typeof LayoutImport
+    }
+    '/_layout/reports/$id/': {
+      id: '/_layout/reports/$id/'
+      path: '/reports/$id'
+      fullPath: '/reports/$id'
+      preLoaderRoute: typeof LayoutReportsIdIndexImport
+      parentRoute: typeof LayoutImport
+    }
+    '/_layout/study/$id/': {
+      id: '/_layout/study/$id/'
+      path: '/study/$id'
+      fullPath: '/study/$id'
+      preLoaderRoute: typeof LayoutStudyIdIndexImport
+      parentRoute: typeof LayoutImport
+    }
+    '/_layout/success/$id/': {
+      id: '/_layout/success/$id/'
+      path: '/success/$id'
+      fullPath: '/success/$id'
+      preLoaderRoute: typeof LayoutSuccessIdIndexImport
+      parentRoute: typeof LayoutImport
+    }
+    '/_layout/worker/$id/': {
+      id: '/_layout/worker/$id/'
+      path: '/worker/$id'
+      fullPath: '/worker/$id'
+      preLoaderRoute: typeof LayoutWorkerIdIndexImport
       parentRoute: typeof LayoutImport
     }
   }
@@ -151,21 +641,91 @@ declare module '@tanstack/react-router' {
 interface LayoutRouteChildren {
   LayoutDashboardRoute: typeof LayoutDashboardRoute
   LayoutIndexRoute: typeof LayoutIndexRoute
+  LayoutCouncilCreateRoute: typeof LayoutCouncilCreateRoute
+  LayoutCouncilListRoute: typeof LayoutCouncilListRoute
+  LayoutMembersCreateRoute: typeof LayoutMembersCreateRoute
+  LayoutMembersListRoute: typeof LayoutMembersListRoute
   LayoutNewsCreateRoute: typeof LayoutNewsCreateRoute
   LayoutNewsListRoute: typeof LayoutNewsListRoute
+  LayoutProjectsCreateRoute: typeof LayoutProjectsCreateRoute
+  LayoutProjectsListRoute: typeof LayoutProjectsListRoute
+  LayoutReportsCreateRoute: typeof LayoutReportsCreateRoute
+  LayoutReportsListRoute: typeof LayoutReportsListRoute
+  LayoutStudyCreateRoute: typeof LayoutStudyCreateRoute
+  LayoutStudyListRoute: typeof LayoutStudyListRoute
+  LayoutSuccessCreateRoute: typeof LayoutSuccessCreateRoute
+  LayoutSuccessListRoute: typeof LayoutSuccessListRoute
+  LayoutWorkerCreateRoute: typeof LayoutWorkerCreateRoute
+  LayoutWorkerListRoute: typeof LayoutWorkerListRoute
+  LayoutCouncilIndexRoute: typeof LayoutCouncilIndexRoute
+  LayoutMembersIndexRoute: typeof LayoutMembersIndexRoute
   LayoutNewsIndexRoute: typeof LayoutNewsIndexRoute
+  LayoutProjectsIndexRoute: typeof LayoutProjectsIndexRoute
+  LayoutReportsIndexRoute: typeof LayoutReportsIndexRoute
+  LayoutStudyIndexRoute: typeof LayoutStudyIndexRoute
+  LayoutSuccessIndexRoute: typeof LayoutSuccessIndexRoute
+  LayoutWorkerIndexRoute: typeof LayoutWorkerIndexRoute
+  LayoutCouncilIdEditRoute: typeof LayoutCouncilIdEditRoute
+  LayoutMembersIdEditRoute: typeof LayoutMembersIdEditRoute
   LayoutNewsIdEditRoute: typeof LayoutNewsIdEditRoute
+  LayoutProjectsIdEditRoute: typeof LayoutProjectsIdEditRoute
+  LayoutReportsIdEditRoute: typeof LayoutReportsIdEditRoute
+  LayoutStudyIdEditRoute: typeof LayoutStudyIdEditRoute
+  LayoutSuccessIdEditRoute: typeof LayoutSuccessIdEditRoute
+  LayoutWorkerIdEditRoute: typeof LayoutWorkerIdEditRoute
+  LayoutCouncilIdIndexRoute: typeof LayoutCouncilIdIndexRoute
+  LayoutMembersIdIndexRoute: typeof LayoutMembersIdIndexRoute
   LayoutNewsIdIndexRoute: typeof LayoutNewsIdIndexRoute
+  LayoutProjectsIdIndexRoute: typeof LayoutProjectsIdIndexRoute
+  LayoutReportsIdIndexRoute: typeof LayoutReportsIdIndexRoute
+  LayoutStudyIdIndexRoute: typeof LayoutStudyIdIndexRoute
+  LayoutSuccessIdIndexRoute: typeof LayoutSuccessIdIndexRoute
+  LayoutWorkerIdIndexRoute: typeof LayoutWorkerIdIndexRoute
 }
 
 const LayoutRouteChildren: LayoutRouteChildren = {
   LayoutDashboardRoute: LayoutDashboardRoute,
   LayoutIndexRoute: LayoutIndexRoute,
+  LayoutCouncilCreateRoute: LayoutCouncilCreateRoute,
+  LayoutCouncilListRoute: LayoutCouncilListRoute,
+  LayoutMembersCreateRoute: LayoutMembersCreateRoute,
+  LayoutMembersListRoute: LayoutMembersListRoute,
   LayoutNewsCreateRoute: LayoutNewsCreateRoute,
   LayoutNewsListRoute: LayoutNewsListRoute,
+  LayoutProjectsCreateRoute: LayoutProjectsCreateRoute,
+  LayoutProjectsListRoute: LayoutProjectsListRoute,
+  LayoutReportsCreateRoute: LayoutReportsCreateRoute,
+  LayoutReportsListRoute: LayoutReportsListRoute,
+  LayoutStudyCreateRoute: LayoutStudyCreateRoute,
+  LayoutStudyListRoute: LayoutStudyListRoute,
+  LayoutSuccessCreateRoute: LayoutSuccessCreateRoute,
+  LayoutSuccessListRoute: LayoutSuccessListRoute,
+  LayoutWorkerCreateRoute: LayoutWorkerCreateRoute,
+  LayoutWorkerListRoute: LayoutWorkerListRoute,
+  LayoutCouncilIndexRoute: LayoutCouncilIndexRoute,
+  LayoutMembersIndexRoute: LayoutMembersIndexRoute,
   LayoutNewsIndexRoute: LayoutNewsIndexRoute,
+  LayoutProjectsIndexRoute: LayoutProjectsIndexRoute,
+  LayoutReportsIndexRoute: LayoutReportsIndexRoute,
+  LayoutStudyIndexRoute: LayoutStudyIndexRoute,
+  LayoutSuccessIndexRoute: LayoutSuccessIndexRoute,
+  LayoutWorkerIndexRoute: LayoutWorkerIndexRoute,
+  LayoutCouncilIdEditRoute: LayoutCouncilIdEditRoute,
+  LayoutMembersIdEditRoute: LayoutMembersIdEditRoute,
   LayoutNewsIdEditRoute: LayoutNewsIdEditRoute,
+  LayoutProjectsIdEditRoute: LayoutProjectsIdEditRoute,
+  LayoutReportsIdEditRoute: LayoutReportsIdEditRoute,
+  LayoutStudyIdEditRoute: LayoutStudyIdEditRoute,
+  LayoutSuccessIdEditRoute: LayoutSuccessIdEditRoute,
+  LayoutWorkerIdEditRoute: LayoutWorkerIdEditRoute,
+  LayoutCouncilIdIndexRoute: LayoutCouncilIdIndexRoute,
+  LayoutMembersIdIndexRoute: LayoutMembersIdIndexRoute,
   LayoutNewsIdIndexRoute: LayoutNewsIdIndexRoute,
+  LayoutProjectsIdIndexRoute: LayoutProjectsIdIndexRoute,
+  LayoutReportsIdIndexRoute: LayoutReportsIdIndexRoute,
+  LayoutStudyIdIndexRoute: LayoutStudyIdIndexRoute,
+  LayoutSuccessIdIndexRoute: LayoutSuccessIdIndexRoute,
+  LayoutWorkerIdIndexRoute: LayoutWorkerIdIndexRoute,
 }
 
 const LayoutRouteWithChildren =
@@ -176,22 +736,92 @@ export interface FileRoutesByFullPath {
   '/login': typeof LoginRoute
   '/dashboard': typeof LayoutDashboardRoute
   '/': typeof LayoutIndexRoute
+  '/council/create': typeof LayoutCouncilCreateRoute
+  '/council/list': typeof LayoutCouncilListRoute
+  '/members/create': typeof LayoutMembersCreateRoute
+  '/members/list': typeof LayoutMembersListRoute
   '/news/create': typeof LayoutNewsCreateRoute
   '/news/list': typeof LayoutNewsListRoute
+  '/projects/create': typeof LayoutProjectsCreateRoute
+  '/projects/list': typeof LayoutProjectsListRoute
+  '/reports/create': typeof LayoutReportsCreateRoute
+  '/reports/list': typeof LayoutReportsListRoute
+  '/study/create': typeof LayoutStudyCreateRoute
+  '/study/list': typeof LayoutStudyListRoute
+  '/success/create': typeof LayoutSuccessCreateRoute
+  '/success/list': typeof LayoutSuccessListRoute
+  '/worker/create': typeof LayoutWorkerCreateRoute
+  '/worker/list': typeof LayoutWorkerListRoute
+  '/council': typeof LayoutCouncilIndexRoute
+  '/members': typeof LayoutMembersIndexRoute
   '/news': typeof LayoutNewsIndexRoute
+  '/projects': typeof LayoutProjectsIndexRoute
+  '/reports': typeof LayoutReportsIndexRoute
+  '/study': typeof LayoutStudyIndexRoute
+  '/success': typeof LayoutSuccessIndexRoute
+  '/worker': typeof LayoutWorkerIndexRoute
+  '/council/$id/edit': typeof LayoutCouncilIdEditRoute
+  '/members/$id/edit': typeof LayoutMembersIdEditRoute
   '/news/$id/edit': typeof LayoutNewsIdEditRoute
+  '/projects/$id/edit': typeof LayoutProjectsIdEditRoute
+  '/reports/$id/edit': typeof LayoutReportsIdEditRoute
+  '/study/$id/edit': typeof LayoutStudyIdEditRoute
+  '/success/$id/edit': typeof LayoutSuccessIdEditRoute
+  '/worker/$id/edit': typeof LayoutWorkerIdEditRoute
+  '/council/$id': typeof LayoutCouncilIdIndexRoute
+  '/members/$id': typeof LayoutMembersIdIndexRoute
   '/news/$id': typeof LayoutNewsIdIndexRoute
+  '/projects/$id': typeof LayoutProjectsIdIndexRoute
+  '/reports/$id': typeof LayoutReportsIdIndexRoute
+  '/study/$id': typeof LayoutStudyIdIndexRoute
+  '/success/$id': typeof LayoutSuccessIdIndexRoute
+  '/worker/$id': typeof LayoutWorkerIdIndexRoute
 }
 
 export interface FileRoutesByTo {
   '/login': typeof LoginRoute
   '/dashboard': typeof LayoutDashboardRoute
   '/': typeof LayoutIndexRoute
+  '/council/create': typeof LayoutCouncilCreateRoute
+  '/council/list': typeof LayoutCouncilListRoute
+  '/members/create': typeof LayoutMembersCreateRoute
+  '/members/list': typeof LayoutMembersListRoute
   '/news/create': typeof LayoutNewsCreateRoute
   '/news/list': typeof LayoutNewsListRoute
+  '/projects/create': typeof LayoutProjectsCreateRoute
+  '/projects/list': typeof LayoutProjectsListRoute
+  '/reports/create': typeof LayoutReportsCreateRoute
+  '/reports/list': typeof LayoutReportsListRoute
+  '/study/create': typeof LayoutStudyCreateRoute
+  '/study/list': typeof LayoutStudyListRoute
+  '/success/create': typeof LayoutSuccessCreateRoute
+  '/success/list': typeof LayoutSuccessListRoute
+  '/worker/create': typeof LayoutWorkerCreateRoute
+  '/worker/list': typeof LayoutWorkerListRoute
+  '/council': typeof LayoutCouncilIndexRoute
+  '/members': typeof LayoutMembersIndexRoute
   '/news': typeof LayoutNewsIndexRoute
+  '/projects': typeof LayoutProjectsIndexRoute
+  '/reports': typeof LayoutReportsIndexRoute
+  '/study': typeof LayoutStudyIndexRoute
+  '/success': typeof LayoutSuccessIndexRoute
+  '/worker': typeof LayoutWorkerIndexRoute
+  '/council/$id/edit': typeof LayoutCouncilIdEditRoute
+  '/members/$id/edit': typeof LayoutMembersIdEditRoute
   '/news/$id/edit': typeof LayoutNewsIdEditRoute
+  '/projects/$id/edit': typeof LayoutProjectsIdEditRoute
+  '/reports/$id/edit': typeof LayoutReportsIdEditRoute
+  '/study/$id/edit': typeof LayoutStudyIdEditRoute
+  '/success/$id/edit': typeof LayoutSuccessIdEditRoute
+  '/worker/$id/edit': typeof LayoutWorkerIdEditRoute
+  '/council/$id': typeof LayoutCouncilIdIndexRoute
+  '/members/$id': typeof LayoutMembersIdIndexRoute
   '/news/$id': typeof LayoutNewsIdIndexRoute
+  '/projects/$id': typeof LayoutProjectsIdIndexRoute
+  '/reports/$id': typeof LayoutReportsIdIndexRoute
+  '/study/$id': typeof LayoutStudyIdIndexRoute
+  '/success/$id': typeof LayoutSuccessIdIndexRoute
+  '/worker/$id': typeof LayoutWorkerIdIndexRoute
 }
 
 export interface FileRoutesById {
@@ -200,11 +830,46 @@ export interface FileRoutesById {
   '/login': typeof LoginRoute
   '/_layout/dashboard': typeof LayoutDashboardRoute
   '/_layout/': typeof LayoutIndexRoute
+  '/_layout/council/create': typeof LayoutCouncilCreateRoute
+  '/_layout/council/list': typeof LayoutCouncilListRoute
+  '/_layout/members/create': typeof LayoutMembersCreateRoute
+  '/_layout/members/list': typeof LayoutMembersListRoute
   '/_layout/news/create': typeof LayoutNewsCreateRoute
   '/_layout/news/list': typeof LayoutNewsListRoute
+  '/_layout/projects/create': typeof LayoutProjectsCreateRoute
+  '/_layout/projects/list': typeof LayoutProjectsListRoute
+  '/_layout/reports/create': typeof LayoutReportsCreateRoute
+  '/_layout/reports/list': typeof LayoutReportsListRoute
+  '/_layout/study/create': typeof LayoutStudyCreateRoute
+  '/_layout/study/list': typeof LayoutStudyListRoute
+  '/_layout/success/create': typeof LayoutSuccessCreateRoute
+  '/_layout/success/list': typeof LayoutSuccessListRoute
+  '/_layout/worker/create': typeof LayoutWorkerCreateRoute
+  '/_layout/worker/list': typeof LayoutWorkerListRoute
+  '/_layout/council/': typeof LayoutCouncilIndexRoute
+  '/_layout/members/': typeof LayoutMembersIndexRoute
   '/_layout/news/': typeof LayoutNewsIndexRoute
+  '/_layout/projects/': typeof LayoutProjectsIndexRoute
+  '/_layout/reports/': typeof LayoutReportsIndexRoute
+  '/_layout/study/': typeof LayoutStudyIndexRoute
+  '/_layout/success/': typeof LayoutSuccessIndexRoute
+  '/_layout/worker/': typeof LayoutWorkerIndexRoute
+  '/_layout/council/$id/edit': typeof LayoutCouncilIdEditRoute
+  '/_layout/members/$id/edit': typeof LayoutMembersIdEditRoute
   '/_layout/news/$id/edit': typeof LayoutNewsIdEditRoute
+  '/_layout/projects/$id/edit': typeof LayoutProjectsIdEditRoute
+  '/_layout/reports/$id/edit': typeof LayoutReportsIdEditRoute
+  '/_layout/study/$id/edit': typeof LayoutStudyIdEditRoute
+  '/_layout/success/$id/edit': typeof LayoutSuccessIdEditRoute
+  '/_layout/worker/$id/edit': typeof LayoutWorkerIdEditRoute
+  '/_layout/council/$id/': typeof LayoutCouncilIdIndexRoute
+  '/_layout/members/$id/': typeof LayoutMembersIdIndexRoute
   '/_layout/news/$id/': typeof LayoutNewsIdIndexRoute
+  '/_layout/projects/$id/': typeof LayoutProjectsIdIndexRoute
+  '/_layout/reports/$id/': typeof LayoutReportsIdIndexRoute
+  '/_layout/study/$id/': typeof LayoutStudyIdIndexRoute
+  '/_layout/success/$id/': typeof LayoutSuccessIdIndexRoute
+  '/_layout/worker/$id/': typeof LayoutWorkerIdIndexRoute
 }
 
 export interface FileRouteTypes {
@@ -214,32 +879,137 @@ export interface FileRouteTypes {
     | '/login'
     | '/dashboard'
     | '/'
+    | '/council/create'
+    | '/council/list'
+    | '/members/create'
+    | '/members/list'
     | '/news/create'
     | '/news/list'
+    | '/projects/create'
+    | '/projects/list'
+    | '/reports/create'
+    | '/reports/list'
+    | '/study/create'
+    | '/study/list'
+    | '/success/create'
+    | '/success/list'
+    | '/worker/create'
+    | '/worker/list'
+    | '/council'
+    | '/members'
     | '/news'
+    | '/projects'
+    | '/reports'
+    | '/study'
+    | '/success'
+    | '/worker'
+    | '/council/$id/edit'
+    | '/members/$id/edit'
     | '/news/$id/edit'
+    | '/projects/$id/edit'
+    | '/reports/$id/edit'
+    | '/study/$id/edit'
+    | '/success/$id/edit'
+    | '/worker/$id/edit'
+    | '/council/$id'
+    | '/members/$id'
     | '/news/$id'
+    | '/projects/$id'
+    | '/reports/$id'
+    | '/study/$id'
+    | '/success/$id'
+    | '/worker/$id'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/login'
     | '/dashboard'
     | '/'
+    | '/council/create'
+    | '/council/list'
+    | '/members/create'
+    | '/members/list'
     | '/news/create'
     | '/news/list'
+    | '/projects/create'
+    | '/projects/list'
+    | '/reports/create'
+    | '/reports/list'
+    | '/study/create'
+    | '/study/list'
+    | '/success/create'
+    | '/success/list'
+    | '/worker/create'
+    | '/worker/list'
+    | '/council'
+    | '/members'
     | '/news'
+    | '/projects'
+    | '/reports'
+    | '/study'
+    | '/success'
+    | '/worker'
+    | '/council/$id/edit'
+    | '/members/$id/edit'
     | '/news/$id/edit'
+    | '/projects/$id/edit'
+    | '/reports/$id/edit'
+    | '/study/$id/edit'
+    | '/success/$id/edit'
+    | '/worker/$id/edit'
+    | '/council/$id'
+    | '/members/$id'
     | '/news/$id'
+    | '/projects/$id'
+    | '/reports/$id'
+    | '/study/$id'
+    | '/success/$id'
+    | '/worker/$id'
   id:
     | '__root__'
     | '/_layout'
     | '/login'
     | '/_layout/dashboard'
     | '/_layout/'
+    | '/_layout/council/create'
+    | '/_layout/council/list'
+    | '/_layout/members/create'
+    | '/_layout/members/list'
     | '/_layout/news/create'
     | '/_layout/news/list'
+    | '/_layout/projects/create'
+    | '/_layout/projects/list'
+    | '/_layout/reports/create'
+    | '/_layout/reports/list'
+    | '/_layout/study/create'
+    | '/_layout/study/list'
+    | '/_layout/success/create'
+    | '/_layout/success/list'
+    | '/_layout/worker/create'
+    | '/_layout/worker/list'
+    | '/_layout/council/'
+    | '/_layout/members/'
     | '/_layout/news/'
+    | '/_layout/projects/'
+    | '/_layout/reports/'
+    | '/_layout/study/'
+    | '/_layout/success/'
+    | '/_layout/worker/'
+    | '/_layout/council/$id/edit'
+    | '/_layout/members/$id/edit'
     | '/_layout/news/$id/edit'
+    | '/_layout/projects/$id/edit'
+    | '/_layout/reports/$id/edit'
+    | '/_layout/study/$id/edit'
+    | '/_layout/success/$id/edit'
+    | '/_layout/worker/$id/edit'
+    | '/_layout/council/$id/'
+    | '/_layout/members/$id/'
     | '/_layout/news/$id/'
+    | '/_layout/projects/$id/'
+    | '/_layout/reports/$id/'
+    | '/_layout/study/$id/'
+    | '/_layout/success/$id/'
+    | '/_layout/worker/$id/'
   fileRoutesById: FileRoutesById
 }
 
@@ -272,11 +1042,46 @@ export const routeTree = rootRoute
       "children": [
         "/_layout/dashboard",
         "/_layout/",
+        "/_layout/council/create",
+        "/_layout/council/list",
+        "/_layout/members/create",
+        "/_layout/members/list",
         "/_layout/news/create",
         "/_layout/news/list",
+        "/_layout/projects/create",
+        "/_layout/projects/list",
+        "/_layout/reports/create",
+        "/_layout/reports/list",
+        "/_layout/study/create",
+        "/_layout/study/list",
+        "/_layout/success/create",
+        "/_layout/success/list",
+        "/_layout/worker/create",
+        "/_layout/worker/list",
+        "/_layout/council/",
+        "/_layout/members/",
         "/_layout/news/",
+        "/_layout/projects/",
+        "/_layout/reports/",
+        "/_layout/study/",
+        "/_layout/success/",
+        "/_layout/worker/",
+        "/_layout/council/$id/edit",
+        "/_layout/members/$id/edit",
         "/_layout/news/$id/edit",
-        "/_layout/news/$id/"
+        "/_layout/projects/$id/edit",
+        "/_layout/reports/$id/edit",
+        "/_layout/study/$id/edit",
+        "/_layout/success/$id/edit",
+        "/_layout/worker/$id/edit",
+        "/_layout/council/$id/",
+        "/_layout/members/$id/",
+        "/_layout/news/$id/",
+        "/_layout/projects/$id/",
+        "/_layout/reports/$id/",
+        "/_layout/study/$id/",
+        "/_layout/success/$id/",
+        "/_layout/worker/$id/"
       ]
     },
     "/login": {
@@ -290,6 +1095,22 @@ export const routeTree = rootRoute
       "filePath": "_layout/index.tsx",
       "parent": "/_layout"
     },
+    "/_layout/council/create": {
+      "filePath": "_layout/council/create.tsx",
+      "parent": "/_layout"
+    },
+    "/_layout/council/list": {
+      "filePath": "_layout/council/list.tsx",
+      "parent": "/_layout"
+    },
+    "/_layout/members/create": {
+      "filePath": "_layout/members/create.tsx",
+      "parent": "/_layout"
+    },
+    "/_layout/members/list": {
+      "filePath": "_layout/members/list.tsx",
+      "parent": "/_layout"
+    },
     "/_layout/news/create": {
       "filePath": "_layout/news/create.tsx",
       "parent": "/_layout"
@@ -298,16 +1119,140 @@ export const routeTree = rootRoute
       "filePath": "_layout/news/list.tsx",
       "parent": "/_layout"
     },
+    "/_layout/projects/create": {
+      "filePath": "_layout/projects/create.tsx",
+      "parent": "/_layout"
+    },
+    "/_layout/projects/list": {
+      "filePath": "_layout/projects/list.tsx",
+      "parent": "/_layout"
+    },
+    "/_layout/reports/create": {
+      "filePath": "_layout/reports/create.tsx",
+      "parent": "/_layout"
+    },
+    "/_layout/reports/list": {
+      "filePath": "_layout/reports/list.tsx",
+      "parent": "/_layout"
+    },
+    "/_layout/study/create": {
+      "filePath": "_layout/study/create.tsx",
+      "parent": "/_layout"
+    },
+    "/_layout/study/list": {
+      "filePath": "_layout/study/list.tsx",
+      "parent": "/_layout"
+    },
+    "/_layout/success/create": {
+      "filePath": "_layout/success/create.tsx",
+      "parent": "/_layout"
+    },
+    "/_layout/success/list": {
+      "filePath": "_layout/success/list.tsx",
+      "parent": "/_layout"
+    },
+    "/_layout/worker/create": {
+      "filePath": "_layout/worker/create.tsx",
+      "parent": "/_layout"
+    },
+    "/_layout/worker/list": {
+      "filePath": "_layout/worker/list.tsx",
+      "parent": "/_layout"
+    },
+    "/_layout/council/": {
+      "filePath": "_layout/council/index.tsx",
+      "parent": "/_layout"
+    },
+    "/_layout/members/": {
+      "filePath": "_layout/members/index.tsx",
+      "parent": "/_layout"
+    },
     "/_layout/news/": {
       "filePath": "_layout/news/index.tsx",
+      "parent": "/_layout"
+    },
+    "/_layout/projects/": {
+      "filePath": "_layout/projects/index.tsx",
+      "parent": "/_layout"
+    },
+    "/_layout/reports/": {
+      "filePath": "_layout/reports/index.tsx",
+      "parent": "/_layout"
+    },
+    "/_layout/study/": {
+      "filePath": "_layout/study/index.tsx",
+      "parent": "/_layout"
+    },
+    "/_layout/success/": {
+      "filePath": "_layout/success/index.tsx",
+      "parent": "/_layout"
+    },
+    "/_layout/worker/": {
+      "filePath": "_layout/worker/index.tsx",
+      "parent": "/_layout"
+    },
+    "/_layout/council/$id/edit": {
+      "filePath": "_layout/council/$id/edit.tsx",
+      "parent": "/_layout"
+    },
+    "/_layout/members/$id/edit": {
+      "filePath": "_layout/members/$id/edit.tsx",
       "parent": "/_layout"
     },
     "/_layout/news/$id/edit": {
       "filePath": "_layout/news/$id/edit.tsx",
       "parent": "/_layout"
     },
+    "/_layout/projects/$id/edit": {
+      "filePath": "_layout/projects/$id/edit.tsx",
+      "parent": "/_layout"
+    },
+    "/_layout/reports/$id/edit": {
+      "filePath": "_layout/reports/$id/edit.tsx",
+      "parent": "/_layout"
+    },
+    "/_layout/study/$id/edit": {
+      "filePath": "_layout/study/$id/edit.tsx",
+      "parent": "/_layout"
+    },
+    "/_layout/success/$id/edit": {
+      "filePath": "_layout/success/$id/edit.tsx",
+      "parent": "/_layout"
+    },
+    "/_layout/worker/$id/edit": {
+      "filePath": "_layout/worker/$id/edit.tsx",
+      "parent": "/_layout"
+    },
+    "/_layout/council/$id/": {
+      "filePath": "_layout/council/$id/index.tsx",
+      "parent": "/_layout"
+    },
+    "/_layout/members/$id/": {
+      "filePath": "_layout/members/$id/index.tsx",
+      "parent": "/_layout"
+    },
     "/_layout/news/$id/": {
       "filePath": "_layout/news/$id/index.tsx",
+      "parent": "/_layout"
+    },
+    "/_layout/projects/$id/": {
+      "filePath": "_layout/projects/$id/index.tsx",
+      "parent": "/_layout"
+    },
+    "/_layout/reports/$id/": {
+      "filePath": "_layout/reports/$id/index.tsx",
+      "parent": "/_layout"
+    },
+    "/_layout/study/$id/": {
+      "filePath": "_layout/study/$id/index.tsx",
+      "parent": "/_layout"
+    },
+    "/_layout/success/$id/": {
+      "filePath": "_layout/success/$id/index.tsx",
+      "parent": "/_layout"
+    },
+    "/_layout/worker/$id/": {
+      "filePath": "_layout/worker/$id/index.tsx",
       "parent": "/_layout"
     }
   }

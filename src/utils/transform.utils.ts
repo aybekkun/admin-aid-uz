@@ -17,7 +17,7 @@ export const transformToFormData = (values: Record<string, any>): FormData => {
 	// Handle all other fields
 	Object.entries(values).forEach(([key, value]) => {
 		// Skip the image field as we've already handled it
-		if (key !== "image" && value !== undefined && value !== null) {
+		if (key !== "image" && key !== "file" && value !== undefined && value !== null) {
 			formData.append(key, value.toString());
 		}
 	});

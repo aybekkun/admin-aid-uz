@@ -10,13 +10,13 @@ export const useReportsColumns = () => {
 	const { mutate: deleteReports, isPending } = useDeleteReportsMutation();
 	const columns: ColumnsType<TReports> = [
 		{
-			title: "Name",
+			title: "Название",
 			dataIndex: "name",
 			key: "title",
 		},
 
 		{
-			title: "Created At",
+			title: "Создан",
 			dataIndex: "created_at",
 			key: "created_at",
 			render: formatDate,
@@ -33,7 +33,7 @@ export const useReportsColumns = () => {
 			),
 		},
 		{
-			title: "Actions",
+			title: "Создан",
 			key: "actions",
 			render: (record: TReports) => (
 				<TableActions deleteItem={deleteReports} isPending={isPending} type="reports" id={record.id} record={record} />

@@ -10,30 +10,30 @@ export const useProjectsColumns = () => {
 	const { mutate: deleteProjects, isPending } = useDeleteProjectsMutation();
 	const columns: ColumnsType<TProjects> = [
 		{
-			title: "Name",
+			title: "Название",
 			dataIndex: "name",
 			key: "title",
 		},
 		{
-			title: "Description",
+			title: "Описание",
 			dataIndex: "description",
 			key: "description",
 		},
 
 		{
-			title: "Image",
+			title: "Фото",
 			dataIndex: "image",
 			key: "image",
 			render: (image) => <Image width={30} height={30} src={image} />,
 		},
 		{
-			title: "Created At",
+			title: "Создан",
 			dataIndex: "created_at",
 			key: "created_at",
 			render: formatDate,
 		},
 		{
-			title: "Actions",
+			title: "Действия",
 			key: "actions",
 			render: (record: TProjects) => (
 				<TableActions

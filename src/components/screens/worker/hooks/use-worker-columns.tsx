@@ -8,34 +8,34 @@ export const useWorkerColumns = () => {
 	const { mutate: deleteWorker, isPending } = useDeleteWorkerMutation();
 	const columns: ColumnsType<TWorker> = [
 		{
-			title: "Name",
+			title: "Название",
 			dataIndex: "full_name",
 			key: "title",
 		},
 		{
-			title: "Position",
+			title: "Должность",
 			dataIndex: "position",
 			key: "position",
 		},
 		{
-			title: "Description",
+			title: "Описание",
 			dataIndex: "description",
 			key: "description",
 		},
 		{
-			title: "Image",
+			title: "Фото",
 			dataIndex: "image",
 			key: "image",
 			render: (image) => <Image width={30} height={30} src={image} />,
 		},
 		{
-			title: "Created At",
+			title: "Создан",
 			dataIndex: "created_at",
 			key: "created_at",
 			render: formatDate,
 		},
 		{
-			title: "Actions",
+			title: "Действия",
 			key: "actions",
 			render: (record: TWorker) => (
 				<TableActions deleteItem={deleteWorker} isPending={isPending} type="worker" id={record.id} record={record} />

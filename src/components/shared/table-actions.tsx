@@ -4,7 +4,7 @@ import { Link } from "@tanstack/react-router";
 
 import { Button, Flex, Popconfirm, Tooltip } from "antd";
 interface TableActionsProps<T extends object> {
-	type: "news" | "users" | "worker" | "council" | "members" | "reports" | "projects" | "success" | "study";
+	type: "news" | "users" | "worker" | "council" | "members" | "reports" | "projects" | "success" | "study" | "seminars";
 	id: TParamId;
 	record?: T;
 	isPending: boolean;
@@ -21,6 +21,7 @@ const HREF_MAP = {
 	projects: "/projects/$id",
 	success: "/success/$id",
 	study: "/study/$id",
+	seminars: "/seminars/$id",
 };
 
 export const TableActions = <T extends object>({ id, type, deleteItem, isPending }: TableActionsProps<T>) => {

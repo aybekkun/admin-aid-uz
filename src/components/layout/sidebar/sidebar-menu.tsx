@@ -1,19 +1,14 @@
 import { FC } from "react";
-import {
-	CopyOutlined,
-	FileOutlined,
-	ReadOutlined,
-	RiseOutlined,
-	TeamOutlined,
-	UploadOutlined,
-	UserOutlined,
-	VideoCameraOutlined,
-} from "@ant-design/icons";
-import { Menu } from "antd";
+
+import { Menu, MenuProps } from "antd";
 import { useLocation, useRouter } from "@tanstack/react-router";
+import { useMenuData } from "./use-menu-data";
+import { useCollapsedStore } from "@/store";
 export const SidebarMenu: FC = () => {
 	const router = useRouter();
 	const { pathname } = useLocation();
+	const { collapsed } = useCollapsedStore();
+	const menuData = useMenuData();
 	const onSelectMenu = (key: string) => {
 		router.navigate({
 			href: key,
@@ -26,68 +21,7 @@ export const SidebarMenu: FC = () => {
 			defaultSelectedKeys={[pathname]}
 			selectedKeys={[pathname]}
 			onSelect={(item) => onSelectMenu(item.key)}
-			items={[
-				{
-					key: "/news-group",
-					label: "Новости",
-					type: "group",
-				},
-				{
-					key: "/news/list",
-					label: "Список новостей",
-					icon: <ReadOutlined />,
-				},
-				{
-					key: "/association",
-					type: "group",
-					label: "Ассоциация",
-				},
-				{
-					key: "/worker/list",
-					icon: <UserOutlined />,
-					label: "Рабочие",
-				},
-				{
-					key: "/council/list",
-					icon: <TeamOutlined />,
-					label: "Список совета",
-				},
-				{
-					key: "/members/list",
-					icon: <TeamOutlined />,
-					label: "Список членов",
-				},
-				{
-					key: "/reports/list",
-					icon: <UploadOutlined />,
-					label: "Годовые отчеты",
-				},
-				{
-					key: "/association-group",
-					label: "Деятельность",
-					type: "group",
-				},
-				{
-					key: "/projects/list",
-					icon: <FileOutlined />,
-					label: "Проекты",
-				},
-				{
-					key: "/success/list",
-					icon: <RiseOutlined />,
-					label: "История успеха",
-				},
-				{
-					key: "/study/list",
-					icon: <CopyOutlined />,
-					label: "Исследование",
-				},
-				{
-					key: "/seminars",
-					icon: <VideoCameraOutlined />,
-					label: "Семинары и конференции",
-				},
-			]}
+			items={menuData.filter((el) => (collapsed ? el?.type !== "group" : el)) as MenuProps["items"]}
 		/>
 	);
 };

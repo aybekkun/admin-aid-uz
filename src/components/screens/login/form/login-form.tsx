@@ -5,12 +5,13 @@ import { useAuthStore } from "@/store/use-auth-store";
 import { formatPhoneReverse } from "@/utils";
 
 import { Button, Card, Form, FormProps, Input, Typography } from "antd";
-import { FC } from "react";
+import { FC, useEffect } from "react";
 import { PatternFormat } from "react-number-format";
 export const LoginForm: FC = () => {
-	const { setUser } = useAuthStore();
+	const { setUser, user } = useAuthStore();
+	const router = useRouter();
 	const [form] = Form.useForm<TAuthLogin>();
-	const { mutate: login, isPending } = useAuthLoginMutation();
+	const { mutate: login, isPending, isSuccess } = useAuthLoginMutation();
 	const onFinish: FormProps<TAuthLogin>["onFinish"] = (values) => {
 		if (values.phone) {
 			values.phone = formatPhoneReverse(values.phone);
@@ -22,6 +23,11 @@ export const LoginForm: FC = () => {
 			},
 		});
 	};
+	useEffect(() => {
+		if (user && isSuccess) {
+			router.invalidate();
+		}
+	}, [user, isSuccess, router]);
 
 	return (
 		<Card style={{ width: "100%", maxWidth: 400 }}>

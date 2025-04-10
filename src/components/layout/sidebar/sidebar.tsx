@@ -22,6 +22,7 @@ export const Sidebar: FC = () => {
 			collapsed={collapsed}
 		>
 			<SidebarMenu />
+		
 		</Layout.Sider>
 	);
 };

@@ -19,6 +19,7 @@ import { Route as LayoutWorkerIndexImport } from './routes/_layout/worker/index'
 import { Route as LayoutSuccessIndexImport } from './routes/_layout/success/index'
 import { Route as LayoutStudyIndexImport } from './routes/_layout/study/index'
 import { Route as LayoutSeminarsIndexImport } from './routes/_layout/seminars/index'
+import { Route as LayoutReviewsIndexImport } from './routes/_layout/reviews/index'
 import { Route as LayoutReportsIndexImport } from './routes/_layout/reports/index'
 import { Route as LayoutProjectsIndexImport } from './routes/_layout/projects/index'
 import { Route as LayoutNewsIndexImport } from './routes/_layout/news/index'
@@ -32,6 +33,7 @@ import { Route as LayoutStudyListImport } from './routes/_layout/study/list'
 import { Route as LayoutStudyCreateImport } from './routes/_layout/study/create'
 import { Route as LayoutSeminarsListImport } from './routes/_layout/seminars/list'
 import { Route as LayoutSeminarsCreateImport } from './routes/_layout/seminars/create'
+import { Route as LayoutReviewsListImport } from './routes/_layout/reviews/list'
 import { Route as LayoutReportsListImport } from './routes/_layout/reports/list'
 import { Route as LayoutReportsCreateImport } from './routes/_layout/reports/create'
 import { Route as LayoutProjectsListImport } from './routes/_layout/projects/list'
@@ -110,6 +112,12 @@ const LayoutSeminarsIndexRoute = LayoutSeminarsIndexImport.update({
   getParentRoute: () => LayoutRoute,
 } as any)
 
+const LayoutReviewsIndexRoute = LayoutReviewsIndexImport.update({
+  id: '/reviews/',
+  path: '/reviews/',
+  getParentRoute: () => LayoutRoute,
+} as any)
+
 const LayoutReportsIndexRoute = LayoutReportsIndexImport.update({
   id: '/reports/',
   path: '/reports/',
@@ -185,6 +193,12 @@ const LayoutSeminarsListRoute = LayoutSeminarsListImport.update({
 const LayoutSeminarsCreateRoute = LayoutSeminarsCreateImport.update({
   id: '/seminars/create',
   path: '/seminars/create',
+  getParentRoute: () => LayoutRoute,
+} as any)
+
+const LayoutReviewsListRoute = LayoutReviewsListImport.update({
+  id: '/reviews/list',
+  path: '/reviews/list',
   getParentRoute: () => LayoutRoute,
 } as any)
 
@@ -458,6 +472,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LayoutReportsListImport
       parentRoute: typeof LayoutImport
     }
+    '/_layout/reviews/list': {
+      id: '/_layout/reviews/list'
+      path: '/reviews/list'
+      fullPath: '/reviews/list'
+      preLoaderRoute: typeof LayoutReviewsListImport
+      parentRoute: typeof LayoutImport
+    }
     '/_layout/seminars/create': {
       id: '/_layout/seminars/create'
       path: '/seminars/create'
@@ -547,6 +568,13 @@ declare module '@tanstack/react-router' {
       path: '/reports'
       fullPath: '/reports'
       preLoaderRoute: typeof LayoutReportsIndexImport
+      parentRoute: typeof LayoutImport
+    }
+    '/_layout/reviews/': {
+      id: '/_layout/reviews/'
+      path: '/reviews'
+      fullPath: '/reviews'
+      preLoaderRoute: typeof LayoutReviewsIndexImport
       parentRoute: typeof LayoutImport
     }
     '/_layout/seminars/': {
@@ -721,6 +749,7 @@ interface LayoutRouteChildren {
   LayoutProjectsListRoute: typeof LayoutProjectsListRoute
   LayoutReportsCreateRoute: typeof LayoutReportsCreateRoute
   LayoutReportsListRoute: typeof LayoutReportsListRoute
+  LayoutReviewsListRoute: typeof LayoutReviewsListRoute
   LayoutSeminarsCreateRoute: typeof LayoutSeminarsCreateRoute
   LayoutSeminarsListRoute: typeof LayoutSeminarsListRoute
   LayoutStudyCreateRoute: typeof LayoutStudyCreateRoute
@@ -734,6 +763,7 @@ interface LayoutRouteChildren {
   LayoutNewsIndexRoute: typeof LayoutNewsIndexRoute
   LayoutProjectsIndexRoute: typeof LayoutProjectsIndexRoute
   LayoutReportsIndexRoute: typeof LayoutReportsIndexRoute
+  LayoutReviewsIndexRoute: typeof LayoutReviewsIndexRoute
   LayoutSeminarsIndexRoute: typeof LayoutSeminarsIndexRoute
   LayoutStudyIndexRoute: typeof LayoutStudyIndexRoute
   LayoutSuccessIndexRoute: typeof LayoutSuccessIndexRoute
@@ -771,6 +801,7 @@ const LayoutRouteChildren: LayoutRouteChildren = {
   LayoutProjectsListRoute: LayoutProjectsListRoute,
   LayoutReportsCreateRoute: LayoutReportsCreateRoute,
   LayoutReportsListRoute: LayoutReportsListRoute,
+  LayoutReviewsListRoute: LayoutReviewsListRoute,
   LayoutSeminarsCreateRoute: LayoutSeminarsCreateRoute,
   LayoutSeminarsListRoute: LayoutSeminarsListRoute,
   LayoutStudyCreateRoute: LayoutStudyCreateRoute,
@@ -784,6 +815,7 @@ const LayoutRouteChildren: LayoutRouteChildren = {
   LayoutNewsIndexRoute: LayoutNewsIndexRoute,
   LayoutProjectsIndexRoute: LayoutProjectsIndexRoute,
   LayoutReportsIndexRoute: LayoutReportsIndexRoute,
+  LayoutReviewsIndexRoute: LayoutReviewsIndexRoute,
   LayoutSeminarsIndexRoute: LayoutSeminarsIndexRoute,
   LayoutStudyIndexRoute: LayoutStudyIndexRoute,
   LayoutSuccessIndexRoute: LayoutSuccessIndexRoute,
@@ -826,6 +858,7 @@ export interface FileRoutesByFullPath {
   '/projects/list': typeof LayoutProjectsListRoute
   '/reports/create': typeof LayoutReportsCreateRoute
   '/reports/list': typeof LayoutReportsListRoute
+  '/reviews/list': typeof LayoutReviewsListRoute
   '/seminars/create': typeof LayoutSeminarsCreateRoute
   '/seminars/list': typeof LayoutSeminarsListRoute
   '/study/create': typeof LayoutStudyCreateRoute
@@ -839,6 +872,7 @@ export interface FileRoutesByFullPath {
   '/news': typeof LayoutNewsIndexRoute
   '/projects': typeof LayoutProjectsIndexRoute
   '/reports': typeof LayoutReportsIndexRoute
+  '/reviews': typeof LayoutReviewsIndexRoute
   '/seminars': typeof LayoutSeminarsIndexRoute
   '/study': typeof LayoutStudyIndexRoute
   '/success': typeof LayoutSuccessIndexRoute
@@ -877,6 +911,7 @@ export interface FileRoutesByTo {
   '/projects/list': typeof LayoutProjectsListRoute
   '/reports/create': typeof LayoutReportsCreateRoute
   '/reports/list': typeof LayoutReportsListRoute
+  '/reviews/list': typeof LayoutReviewsListRoute
   '/seminars/create': typeof LayoutSeminarsCreateRoute
   '/seminars/list': typeof LayoutSeminarsListRoute
   '/study/create': typeof LayoutStudyCreateRoute
@@ -890,6 +925,7 @@ export interface FileRoutesByTo {
   '/news': typeof LayoutNewsIndexRoute
   '/projects': typeof LayoutProjectsIndexRoute
   '/reports': typeof LayoutReportsIndexRoute
+  '/reviews': typeof LayoutReviewsIndexRoute
   '/seminars': typeof LayoutSeminarsIndexRoute
   '/study': typeof LayoutStudyIndexRoute
   '/success': typeof LayoutSuccessIndexRoute
@@ -930,6 +966,7 @@ export interface FileRoutesById {
   '/_layout/projects/list': typeof LayoutProjectsListRoute
   '/_layout/reports/create': typeof LayoutReportsCreateRoute
   '/_layout/reports/list': typeof LayoutReportsListRoute
+  '/_layout/reviews/list': typeof LayoutReviewsListRoute
   '/_layout/seminars/create': typeof LayoutSeminarsCreateRoute
   '/_layout/seminars/list': typeof LayoutSeminarsListRoute
   '/_layout/study/create': typeof LayoutStudyCreateRoute
@@ -943,6 +980,7 @@ export interface FileRoutesById {
   '/_layout/news/': typeof LayoutNewsIndexRoute
   '/_layout/projects/': typeof LayoutProjectsIndexRoute
   '/_layout/reports/': typeof LayoutReportsIndexRoute
+  '/_layout/reviews/': typeof LayoutReviewsIndexRoute
   '/_layout/seminars/': typeof LayoutSeminarsIndexRoute
   '/_layout/study/': typeof LayoutStudyIndexRoute
   '/_layout/success/': typeof LayoutSuccessIndexRoute
@@ -984,6 +1022,7 @@ export interface FileRouteTypes {
     | '/projects/list'
     | '/reports/create'
     | '/reports/list'
+    | '/reviews/list'
     | '/seminars/create'
     | '/seminars/list'
     | '/study/create'
@@ -997,6 +1036,7 @@ export interface FileRouteTypes {
     | '/news'
     | '/projects'
     | '/reports'
+    | '/reviews'
     | '/seminars'
     | '/study'
     | '/success'
@@ -1034,6 +1074,7 @@ export interface FileRouteTypes {
     | '/projects/list'
     | '/reports/create'
     | '/reports/list'
+    | '/reviews/list'
     | '/seminars/create'
     | '/seminars/list'
     | '/study/create'
@@ -1047,6 +1088,7 @@ export interface FileRouteTypes {
     | '/news'
     | '/projects'
     | '/reports'
+    | '/reviews'
     | '/seminars'
     | '/study'
     | '/success'
@@ -1085,6 +1127,7 @@ export interface FileRouteTypes {
     | '/_layout/projects/list'
     | '/_layout/reports/create'
     | '/_layout/reports/list'
+    | '/_layout/reviews/list'
     | '/_layout/seminars/create'
     | '/_layout/seminars/list'
     | '/_layout/study/create'
@@ -1098,6 +1141,7 @@ export interface FileRouteTypes {
     | '/_layout/news/'
     | '/_layout/projects/'
     | '/_layout/reports/'
+    | '/_layout/reviews/'
     | '/_layout/seminars/'
     | '/_layout/study/'
     | '/_layout/success/'
@@ -1162,6 +1206,7 @@ export const routeTree = rootRoute
         "/_layout/projects/list",
         "/_layout/reports/create",
         "/_layout/reports/list",
+        "/_layout/reviews/list",
         "/_layout/seminars/create",
         "/_layout/seminars/list",
         "/_layout/study/create",
@@ -1175,6 +1220,7 @@ export const routeTree = rootRoute
         "/_layout/news/",
         "/_layout/projects/",
         "/_layout/reports/",
+        "/_layout/reviews/",
         "/_layout/seminars/",
         "/_layout/study/",
         "/_layout/success/",
@@ -1250,6 +1296,10 @@ export const routeTree = rootRoute
       "filePath": "_layout/reports/list.tsx",
       "parent": "/_layout"
     },
+    "/_layout/reviews/list": {
+      "filePath": "_layout/reviews/list.tsx",
+      "parent": "/_layout"
+    },
     "/_layout/seminars/create": {
       "filePath": "_layout/seminars/create.tsx",
       "parent": "/_layout"
@@ -1300,6 +1350,10 @@ export const routeTree = rootRoute
     },
     "/_layout/reports/": {
       "filePath": "_layout/reports/index.tsx",
+      "parent": "/_layout"
+    },
+    "/_layout/reviews/": {
+      "filePath": "_layout/reviews/index.tsx",
       "parent": "/_layout"
     },
     "/_layout/seminars/": {

@@ -17,7 +17,7 @@ export const FormFileItem = () => {
 				return e?.fileList;
 			}}
 		>
-			<Upload.Dragger maxCount={1} accept={"file/*"} beforeUpload={() => false} listType={"picture"}>
+			<Upload.Dragger maxCount={1} accept="application/pdf" beforeUpload={() => false} listType={"picture"}>
 				{/*<button style={{ border: 0, background: "none" }} type={"button"}>*/}
 				{/*	<PlusOutlined />*/}
 				{/*	<div style={{ marginTop: 8 }}>Upload</div>*/}

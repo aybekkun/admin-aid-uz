@@ -1,4 +1,3 @@
-
 import {
 	CopyOutlined,
 	FileOutlined,
@@ -8,6 +7,7 @@ import {
 	UploadOutlined,
 	UserOutlined,
 	VideoCameraOutlined,
+	WechatOutlined,
 } from "@ant-design/icons";
 export const useMenuData = () => {
 	return [
@@ -70,6 +70,11 @@ export const useMenuData = () => {
 			key: "/seminars/list",
 			icon: <VideoCameraOutlined />,
 			label: "Семинары и конференции",
+		},
+		{
+			key: "/reviews/list",
+			icon: <WechatOutlined />,
+			label: "Обращения",
 		},
 	];
 };
